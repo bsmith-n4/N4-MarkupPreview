@@ -1,0 +1,2720 @@
+<!DOCTYPE html>
+<!-- saved from url=(0080)/public/asciispec-cheatsheet.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.4">
+<title>AsciiDoc Syntax Cheat Sheet</title>
+<style>
+/* ========================================================================== HTML5 display definitions ========================================================================== */
+/** Correct `block` display not defined in IE 8/9. */
+@import url(https://fast.fonts.net/cssapi/20974f8a-0939-4574-aef9-681eda2faca8.css);
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary { display: block; }
+
+/** Correct `inline-block` display not defined in IE 8/9. */
+audio, canvas, video { display: inline-block; }
+
+/** Prevent modern browsers from displaying `audio` without controls. Remove excess height in iOS 5 devices. */
+audio:not([controls]) { display: none; height: 0; }
+
+/** Address `[hidden]` styling not present in IE 8/9. Hide the `template` element in IE, Safari, and Firefox < 22. */
+[hidden], template { display: none; }
+
+script { display: none !important; }
+
+/* ========================================================================== Base ========================================================================== */
+/** 1. Set default font family to sans-serif. 2. Prevent iOS text size adjust after orientation change, without disabling user zoom. */
+html { font-family: sans-serif; /* 1 */ -ms-text-size-adjust: 100%; /* 2 */ -webkit-text-size-adjust: 100%; /* 2 */ background-color: #D5DFEA; }
+
+/** Remove default margin. */
+body { margin: 0; background-color: #D5DFEA; } /* add margin-right 0 here for mobile*/
+
+/* ========================================================================== Links ========================================================================== */
+/** Remove the gray background color from active links in IE 10. */
+a { background: transparent; }
+
+/** Address `outline` inconsistency between Chrome and other browsers. */
+a:focus { outline: thin dotted; }
+
+/** Improve readability when focused and also mouse hovered in all browsers. */
+a:active, a:hover { outline: 0; }
+
+/* ========================================================================== Typography ========================================================================== */
+/** Address variable `h1` font-size and margin within `section` and `article` contexts in Firefox 4+, Safari 5, and Chrome. */
+h1 { font-size: 2em; margin: 0.67em 0; }
+
+/** Address styling not present in IE 8/9, Safari 5, and Chrome. */
+abbr[title] { border-bottom: 1px dotted; }
+
+/** Address style set to `bolder` in Firefox 4+, Safari 5, and Chrome. */
+b, strong { font-weight: 600; }
+
+/** Address styling not present in Safari 5 and Chrome. */
+dfn { font-style: italic; }
+
+/** Address differences between Firefox and other browsers. */
+hr { -moz-box-sizing: content-box; box-sizing: content-box; height: 0; }
+
+/** Address styling not present in IE 8/9. */
+mark { background: #ff0; color: #000; }
+
+/** Correct font family set oddly in Safari 5 and Chrome. */
+code, kbd, pre, samp { font-family: Fira Mono, monospace, serif; font-size: 1em; }
+
+/** Improve readability of pre-formatted text in all browsers. */
+pre { white-space: pre-wrap; }
+
+/** Set consistent quote types. */
+q { quotes: "\201C" "\201D" "\2018" "\2019"; }
+
+/** Address inconsistent and variable font size in all browsers. */
+small { font-size: 80%; }
+
+/** Prevent `sub` and `sup` affecting `line-height` in all browsers. */
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+
+sup { top: -0.5em; }
+
+sub { bottom: -0.25em; }
+
+/* ========================================================================== Embedded content ========================================================================== */
+/** Remove border when inside `a` element in IE 8/9. */
+img { border: 0; }
+
+/** Correct overflow displayed oddly in IE 9. */
+svg:not(:root) { overflow: hidden; }
+
+/* ========================================================================== Figures ========================================================================== */
+/** Address margin not present in IE 8/9 and Safari 5. */
+figure { margin: 0; }
+
+/* ========================================================================== Forms ========================================================================== */
+/** Define consistent border, margin, and padding. */
+fieldset { border: 1px solid #c0c0c0; margin: 0 2px; padding: 0.35em 0.625em 0.75em; }
+
+/** 1. Correct `color` not being inherited in IE 8/9. 2. Remove padding so people aren't caught out if they zero out fieldsets. */
+legend { border: 0; /* 1 */ padding: 0; /* 2 */ }
+
+/** 1. Correct font family not being inherited in all browsers. 2. Correct font size not being inherited in all browsers. 3. Address margins set differently in Firefox 4+, Safari 5, and Chrome. */
+button, input, select, textarea { font-family: inherit; /* 1 */ font-size: 100%; /* 2 */ margin: 0; /* 3 */ }
+
+/**
+#tocbutton {
+	top: 0;
+	left: 13rem;
+	position:fixed;
+	z-index: 1000;
+}
+*/
+/** Address Firefox 4+ setting `line-height` on `input` using `!important` in the UA stylesheet. */
+button, input { line-height: normal; }
+
+/** Address inconsistent `text-transform` inheritance for `button` and `select`. All other form control elements do not inherit `text-transform` values. Correct `button` style inheritance in Chrome, Safari 5+, and IE 8+. Correct `select` style inheritance in Firefox 4+ and Opera. */
+button, select { text-transform: none; }
+
+/** 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio` and `video` controls. 2. Correct inability to style clickable `input` types in iOS. 3. Improve usability and consistency of cursor style between image-type `input` and others. */
+button, html input[type="button"], input[type="reset"], input[type="submit"] { -webkit-appearance: button; /* 2 */ cursor: pointer; /* 3 */ }
+
+/** Re-set default cursor for disabled elements. */
+button[disabled], html input[disabled] { cursor: default; }
+
+/** 1. Address box sizing set to `content-box` in IE 8/9. 2. Remove excess padding in IE 8/9. */
+input[type="checkbox"], input[type="radio"] { box-sizing: border-box; /* 1 */ padding: 0; /* 2 */ }
+
+/** 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome. 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome (include `-moz` to future-proof). */
+input[type="search"] { -webkit-appearance: textfield; /* 1 */ -moz-box-sizing: content-box; -webkit-box-sizing: content-box; /* 2 */ box-sizing: content-box; }
+
+/** Remove inner padding and search cancel button in Safari 5 and Chrome on OS X. */
+input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
+
+/** Remove inner padding and border in Firefox 4+. */
+button::-moz-focus-inner, input::-moz-focus-inner { border: 0; padding: 0; }
+
+/** 1. Remove default vertical scrollbar in IE 8/9. 2. Improve readability and alignment in all browsers. */
+textarea { overflow: auto; /* 1 */ vertical-align: top; /* 2 */ }
+
+/* ========================================================================== Tables ========================================================================== */
+/** Remove most spacing between table cells. */
+table { border-collapse: collapse; border-spacing: 0; }
+
+meta.foundation-mq-small { font-family: "only screen and (min-width: 768px)"; width: 768px; }
+
+meta.foundation-mq-medium { font-family: "only screen and (min-width:1280px)"; width: 1280px; }
+
+meta.foundation-mq-large { font-family: "only screen and (min-width:1440px)"; width: 1440px; }
+
+*, *:before, *:after { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+html, body {  background-color:#527AA3; }
+
+body {  background: white; color: #222222;   padding: ; margin: 0; font-family: ITC Officina Serif W01, sans-serif, Helvetica Neue, Helvetica, Arial, sans-serif; font-weight: 400; font-style: normal; position: relative; cursor: auto; padding-left: 2rem; padding-right: 2rem;}
+
+
+a:hover { cursor: pointer; }
+
+img, object, embed {  height: auto; max-width: 90%; }
+
+
+object, embed { height: 100%; }
+
+img { -ms-interpolation-mode: bicubic; }
+
+#map_canvas img, #map_canvas embed, #map_canvas object, .map_canvas img, .map_canvas embed, .map_canvas object { max-width: none !important; }
+
+.left { float: left !important; }
+
+.right { float: right !important; }	
+
+.text-left { text-align: left !important; }
+
+.text-right { text-align: right !important; }
+
+.text-center { text-align: center !important; }
+
+.text-justify { text-align: justify !important; }
+
+.hide { display: none; }
+
+.antialiased, body { -webkit-font-smoothing: antialiased; }
+
+img { display: inline-block; vertical-align: baseline; }
+
+textarea { height: auto; min-height: 50px; }
+
+select { width: 100%; }
+
+object, svg { display: inline-block; vertical-align: middle; }
+
+.center { margin-left: auto; margin-right: auto; }
+
+.spread { width: 100%; margin-right: 2rem; }
+
+p.lead, .paragraph.lead > p, #preamble > .sectionbody > .paragraph:first-of-type p { font-size: 1em; line-height: 1.6;  }
+
+
+/* Typography padding etc */
+.subheader, .admonitionblock td.content > .title, .audioblock > .title, .exampleblock > .title, .imageblock > .title, .listingblock > .title, .literalblock > .title, .stemblock > .title, .openblock > .title, .paragraph > .title, .quoteblock > .title, table.tableblock > .title, .verseblock > .title, .videoblock > .title, .dlist > .title, .olist > .title, .ulist > .title, .qlist > .title, .hdlist > .title { line-height: 2.4; color: #132445; font-weight: 400; margin-top: 0em; margin-bottom: 0.5em;  }
+
+
+/* Typography resets */
+div, dl, dt, dd, ul, ol, li, h1, h2, h3, #toctitle, .sidebarblock > .content > .title, h4, h5, h6, pre, form, p, blockquote, th, td { margin: 0; padding: 0; direction: ltr; }
+div.openblock.partintro, div.sectionbody.paragraph {font-weight: 500;  line-height: 1.4; margin-bottom: 1em; }
+div.sect1 {padding-top: 1rem;}
+
+div.paragraph.faq-intro {max-width: 66%;}
+
+
+/* Default Link Styles */
+a { color: #6999d6; text-decoration: none; line-height: inherit;  }
+a:hover, a:focus { color: #132445; }
+a img { border: none; }
+
+
+/* Grey links with black transition 
+
+a { color: #2ba6cb; text-decoration: none; line-height: inherit; color: rgba(0,0,0,.3); transition: .2s; }
+a:active, a:hover, a:focus { color: #212121; }
+a img { border: none; }
+
+*/
+
+
+
+/* Default paragraph styles */
+p { font-family: ITC Officina Sans W01, sans-serif; font-weight: 500; font-size: 1.2rem; line-height: 1.4; padding-bottom: 0.5em;    }
+p aside { font-size: 0.575em; line-height: 1.35; font-style: italic; }
+div.p, { width: 100% }
+
+
+/* Default header styles */
+h1, h2, h3, #toctitle, .sidebarblock > .content > .title, h4, h5, h6 { font-family: ITC Officina Serif W01, sans-serif, Georgia, Verdana, "Helvetica", Helvetica, Arial, sans-serif; font-weight: normal; font-style: normal; color: #244d82; text-rendering: optimizeLegibility; margin-bottom: 0em; line-height: 1.2125em; margin-top:; 2rem;  }
+h1 small, h2 small, h3 small, #toctitle small, .sidebarblock > .content > .title small, h4 small, h5 small, h6 small { font-size: 60%; color: #6999d6; line-height: 0; }
+
+h1 { font-size: 2.125em; max-width:66.66%;}
+
+h2 { font-size: 1.6875em; }
+
+h3, #toctitle, .sidebarblock > .content > .title { font-size: 1.375em; }
+
+h4 { font-size: 1.125em; }
+
+h5 { font-size: 1.125em; }
+
+h6 { font-size: 1em; }
+
+hr { border: solid #dddddd; border-width: 1px 0 0; clear: both; margin: 1.25em 0 1.1875em; height: 0; }
+
+/* Helpful Typography Defaults */
+em, i { font-style: italic; line-height: inherit; }
+
+strong, b { font-weight: 600; line-height: inherit; }
+
+small { font-size: 60%; line-height: inherit; }
+
+code { font-family: Fira Mono, Consolas, "Liberation Mono", Courier, monospace; font-weight: bold; color: #7f0a0c; }
+
+/* Lists */
+ul, ol, dl {  list-style-position: outside; font-family: ITC Officina Sans W01, sans-serif; padding-left: 0rem; list-style-type: disc;}
+
+ul, ol { margin-left: 0em;  }
+ul.no-bullet, ol.no-bullet { margin-left: 1.5em;  margin-bottom: 0;}
+
+/* Unordered Lists */
+ul li ul, ul li ol { margin-left: 1.25em; margin-bottom: 0; font-size: 1em; /* Override nested font-size change */  }
+ul.square li ul, ul.circle li ul, ul.disc li ul { list-style: inherit; }
+ul.square { list-style-type: square; }
+ul.circle { list-style-type: circle; }
+ul.disc { list-style-type: disc; }
+ul.no-bullet { list-style: none; }
+
+/* Ordered Lists */
+ol li ul, ol li ol { margin-left: 1.25em; margin-bottom: 0;   }
+
+/* Definition Lists */
+dl dt { margin-bottom: 0.3125em; font-weight: bold; font-size: 1.2em; font-style: italic}
+dl dd { margin-bottom: 1.25em; }
+
+/* Abbreviations */
+abbr, acronym { text-transform: uppercase; font-size: 90%; color: #222222; border-bottom: 1px dotted #dddddd; cursor: help; }
+
+abbr { text-transform: none; }
+
+/* Blockquotes */
+blockquote { margin: 0 0 1.25em; padding: 0.5625em 1.25em 0 1.1875em; border-left: 1px solid #dddddd; }
+blockquote cite { display: block; font-size: inherit; color: color: #132445; }
+blockquote cite:before { content: "\2014 \0020"; }
+blockquote cite a, blockquote cite a:visited { color: #417dcb; }
+
+blockquote, blockquote p { line-height: 1.6; color: #132445; }
+
+/* Microformats */
+.vcard { display: inline-block; margin: 0 0 1.25em 0; border: 1px solid #dddddd; padding: 0.625em 0.75em; }
+.vcard li { margin: 0; display: block; }
+.vcard .fn { font-weight: bold; font-size: 0.9375em; }
+
+.vevent .summary { font-weight: bold; }
+.vevent abbr { cursor: auto; text-decoration: none; font-weight: bold; border: none; padding: 0 0.0625em; }
+
+@media only screen and (min-width: 768px) { h1, h2, h3, #toctitle, .sidebarblock > .content > .title, h4, h5, h6 { line-height: 1.4;  margin-top: 1rem; margin-bottom: 0.2rem;}
+  h1 { font-size: 2.75em; }
+  h2 { font-size: 2.3125em; }
+  h3, #toctitle, .sidebarblock > .content > .title { font-size: 1.6875em; }
+  h4 { font-size: 1.4375em; } }
+
+/* Tables */
+table { background: white; margin-bottom: 1.25em; border: solid 1px #dddddd; }
+table thead, table tfoot { background: whitesmoke; font-weight: 600; }
+table thead tr th, table thead tr td, table tfoot tr th, table tfoot tr td { padding: 0.5em 0.625em 0.625em; font-size: inherit; color: #222222; text-align: left; }
+table tr th, table tr td { padding: 0.5625em 0.625em; font-size: inherit; color: #222222; }
+table tr.even, table tr.alt, table tr:nth-of-type(even) { background: #f9f9f9; }
+table thead tr th, table tfoot tr th, table tbody tr td, table tr td, table tfoot tr td { display: table-cell; line-height: 1.4; }
+
+/* FEATURE TABLE */
+
+table.done, tr.done.alt, table.done tr:nth-of-type(even) {
+	background: #efe;
+	padding-top: 0;
+	padding-bottom: 0;
+	border: none;
+	margin-bottom: -1px;
+}
+
+table.most, tr.most.alt, table.most tr:nth-of-type(even) {
+	background: #ffd;
+	padding-top: 0;
+	padding-bottom: 0;
+	border: none;
+	margin-bottom: -1px;
+}
+
+table.tbc, tr.tbc.alt, table.tbc tr:nth-of-type(even) {
+	background: #fff6de;
+	padding-top: 0;
+	padding-bottom: 0;
+	border: none;
+	margin-bottom: -1px;
+}
+
+table.tbd, tr.tbd.alt, table.tbd tr:nth-of-type(even) {
+	background: #fee;
+	padding-top: 0;
+	padding-bottom: 0;
+	border: none;
+	margin-bottom: -1px;
+}
+
+table.done thead tr th, table.done tfoot tr th, table.done tfoot tr td, table.done.sect2, table.most thead tr th, table.most tfoot tr th, table.most tfoot tr td, table.most.sect2, table.tbc thead tr th, table.tbc tfoot tr th, table.tbc tfoot tr td, table.tbc.sect2, table.tbd thead tr th, table.tbd tfoot tr th, table.tbd tfoot tr td, table.tbd.sect2 {background: white; font-size: 1.9rem; color: #417dcb; }
+
+
+
+/* 
+green "done" = #efe
+yellow "most" = #ffd
+orange "tbc" = #fff6de
+red "tbd" = #fee
+ */
+
+
+
+body { tab-size: 4; max-width: 1050px; margin-right: auto; margin-left: auto; position: relative; margin-top: 0rem; margin-bottom: 0rem; padding-top: 0rem; /*  Fixes tables, breaks headers */}
+
+h1, h2, h3, #toctitle, .sidebarblock > .content > .title, h4, h5, h6 { line-height: 1.4;  margin-top: 1rem;}
+
+.clearfix:before, .clearfix:after, .float-group:before, .float-group:after { content: " "; display: table; }
+.clearfix:after, .float-group:after { clear: both; }
+
+*:not(pre) > code { font-size: inherit; font-style: normal !important; letter-spacing: 0; padding: 0; line-height: inherit; }
+
+pre, pre > code { line-height: 1.4; color: black; font-family: monospace, serif; font-weight: normal; }
+
+.keyseq { color: #555555; }
+
+kbd { font-family: Consolas, "Liberation Mono", Courier, monospace; display: inline-block; color: #222222; font-size: 0.65em; line-height: 1.45; background-color: #f7f7f7; border: 1px solid #ccc; -webkit-border-radius: 3px; border-radius: 3px; -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 0.1em white inset; box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 0.1em white inset; margin: 0 0.15em; padding: 0.2em 0.5em; vertical-align: middle; position: relative; top: -0.1em; white-space: nowrap; }
+
+.keyseq kbd:first-child { margin-left: 0; }
+
+.keyseq kbd:last-child { margin-right: 0; }
+
+.menuseq, .menu { color: #090909; }
+
+b.button:before, b.button:after { position: relative; top: -1px; font-weight: normal; }
+
+b.button:before { content: "["; padding: 0 3px 0 2px; }
+
+b.button:after { content: "]"; padding: 0 2px 0 3px; }
+
+#header, #content, #footnotes, #footer {  max-width: 1050px; margin-right: auto; margin-left: auto; position: relative; margin-top: 0rem; margin-bottom: 0rem; padding-top: 0rem;  padding-right: 0rem;}
+#header:before, #header:after, #content:before, #content:after, #footnotes:before, #footnotes:after, #footer:before, #footer:after { content: " "; display: table; }
+#header:after, #content:after, #footnotes:after, #footer:after { clear: both; }
+
+
+#content:before { content: none; }
+
+#header > h1:first-child { color: black; font-weight: bold; margin-top: 2.25rem; margin-bottom: 0; }
+#header > h1:first-child + #toc { margin-top: 8px; border-top: 1px solid #dddddd; }
+#header > h1:only-child, body.toc2 #header > h1:nth-last-child(2) { border-bottom: 1px solid #dddddd; padding-bottom: 8px; }
+#header .details { border-bottom: 1px solid #dddddd; line-height: 1.45; padding-top: 0.25em; padding-bottom: 0.25em; padding-left: 0.25em; color: #417dcb; display: -ms-flexbox; display: -webkit-flex; display: flex; -ms-flex-flow: row wrap; -webkit-flex-flow: row wrap; flex-flow: row wrap; }
+#header .details span:first-child { margin-left: -0.125em; }
+#header .details span.email a { color: #6999d6; }
+#header .details br { display: none; }
+#header .details br + span:before { content: "\00a0\2013\00a0"; }
+#header .details br + span.author:before { content: "\00a0\22c5\00a0"; color: #6999d6; }
+#header .details br + span#revremark:before { content: "\00a0|\00a0"; }
+#header #revnumber { text-transform: capitalize; }
+#header #revnumber:after { content: "\00a0"; }
+
+#content > h1:first-child:not([class]) { color: black; font-weight: bold; border-bottom: 1px solid #dddddd; max-width: 1050px; margin-right: auto; margin-left: auto; position: relative; margin-top: 4rem; margin-bottom: 4rem; padding-top: 0rem;   }
+
+/* ========================================================================== Table of Contents ======================================================================= */
+
+
+
+#toc { border-bottom: 1px solid #dddddd; padding-bottom: 0.5em; position: relative; left: 0;}
+#toc > ul { margin-left: 0.125em; padding-left: 1em; }
+#toc ul.sectlevel0 > li > a { font-style: italic; }
+#toc ul.sectlevel0 ul.sectlevel1 { margin: 0.5em 0; }
+#toc ul { font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; list-style-type: none; }
+#toc li { line-height: 1.3334; margin-top: 0.3334em; }
+#toc a { text-decoration: none; }
+#toc a:active { text-decoration: underline; }
+
+#toc ul li:before {
+    content: "›";
+    margin-left: -.75em;
+    margin-right: .4em;
+    color: #244d82
+}
+
+
+
+div.ulist li:before {
+    content: "";
+    position: absolute;
+    margin-top: .2rem;
+    font-size: x-large;
+    margin-left: -.75em;
+    margin-bottom: -.75em;
+    margin-right: 0;
+    line-height: 1rem;
+    color: #244d82
+
+}
+
+
+#toctitle { color: #244d82; font-size: 1.2em; padding-left: 1em; }
+
+#faq {
+	position: relative;
+	right: 9.3rem;
+    top: 9rem;
+	margin-bottom: 20px;
+	left: 45rem;
+	z-index:1;padding-left:2rem;border-left:1px solid #d3d3d3
+
+}
+@media only screen and (max-width: 945px) {
+	div#faq { display: none; }
+}
+
+#faq h2 {
+	font-size: 25px;
+	font-weight: 600;
+	margin-top: -8rem;
+}
+
+div#faq li:before {
+    content: "›";
+    position: absolute;
+    font-size: x-large;
+    margin-left: -.75em;
+    margin-bottom: -.75em;
+    margin-right: 0;
+    line-height: 1rem;
+    color: #244d82
+}
+
+#features-nav {
+	position: absolute;
+	right: 1rem;
+	top: 2rem;
+	margin-bottom: 20px;
+	position:absolute;z-index:1;padding-left:2rem;border-left:1px solid #d3d3d3
+}
+
+@media only screen and (max-width: 993px) {
+	#features-nav { display: none; }
+}
+
+#features-nav h2 {
+	font-size: 25px;
+	font-weight: 600;
+	margin-top: -1rem;
+}
+#features-nav li {
+	margin-top: .3rem;
+}
+
+div#features-nav li:before {
+    content: "›";
+    position: absolute;
+    font-size: x-large;
+    margin-left: -.75em;
+    margin-bottom: -.75em;
+    margin-right: 0;
+    line-height: 1rem;
+    color: #244d82
+}
+
+
+@media only screen and (min-width: 1434px) { body.toc2.toc-right #toc.toc2 { border-right-width: 0; border: none; left: 0px; } }
+
+@media only screen and (min-width: 1434px) { #toctitle { padding-top: 1.5rem; font-size: 1.375em; }
+  body.toc2 { padding-left: 2em; padding-right: 1em; }
+  #toc.toc2 { margin-top: 0 !important; background-color: #f2f2f2; position: fixed; width: 12em; left: 0; top: 0; border-right: 1px solid #dddddd; border-top-width: 0 !important; border-bottom-width: 0 !important; z-index: 1000; padding: 1.25em 0.25em 0em 0.25em; height: 100%; overflow: auto; }
+  #toc.toc2 #toctitle { margin-top: 0; margin-bottom: 0.8rem; font-size: 1.2em; padding-left: 1em;}
+  #toc.toc2 > ul { font-size: 0.9em; margin-bottom: 0; }
+  #toc.toc2 ul ul { margin-left: 1em; padding-left: .3em; }
+  #toc.toc2 ul.sectlevel0 ul.sectlevel1 { padding-left: 0; margin-top: 0.5em; margin-bottom: 0.5em; }
+  body.toc2.toc-right { padding-left: 2em; padding-right: 2em; }
+  body.toc2.toc-right #toc.toc2 { border-right-width: 0; border-left: 1px solid #dddddd; left: auto; right: -13rem; } }
+@media only screen and (min-width: 1535px) { 
+  body.toc2 { padding-left: 2em; padding-right: 2em; }
+  #toctitle { padding-top: 0rem; font-size: 1.375em; }
+  #toc.toc2 { width: 13em; }
+  #toc.toc2 #toctitle { font-size: 1.375em; }
+  #toc.toc2 > ul { font-size: 0.95em; }
+  #toc.toc2 ul ul { padding-left: 0; }
+  body.toc2.toc-right { padding-left: 2em; padding-right: 2em; } }
+#content #toc { border-style: solid; border-width: 1px; border-color: #d9d9d9; margin-bottom: 1.25em; padding: 1.25em; background: #f2f2f2; -webkit-border-radius: 0; border-radius: 0; }
+#content #toc > :first-child { margin-top: 0; }
+#content #toc > :last-child { margin-bottom: 0; }
+
+
+
+#footer {  background-color: rgb(15,26,54); padding: 1.25em; padding-bottom: 0rem; margin-right: -2rem; margin-left: -2rem; margin-top: 2rem; color: white}
+div.social  { background-color: rgb(15,26,54); padding: 1.25em; padding-top: 0rem; margin-right: -2rem; margin-left: -2rem; text-align: left;/* -webkit-flex-basis: 100%; -ms-flex-preferred-size: 100%; flex-basis: 100%; */  }
+div.social > ul li {color: white; line-height: 1.44; font-size: 1.2em; font-weight: 800; font-style: bold position: relative; list-style: none; list-style-type: none; display: inline; text-decoration: none; }
+div.social > ul a:visited { color: #244D82; }
+div.social > ul a:hover { color: #F7D425; } 
+
+#bottomright {float: right;}
+
+
+@media only screen and (max-width: 1050px) {
+	body {width: 100%;}
+}
+
+
+
+#footer-text { color: #dddddd; line-height: 1.44; }
+
+
+.sect1 { padding-bottom: 0.625em; }
+.sectionbody.paragraph {max-width: 66.666%}
+.sectionbody ul {padding-left: 1rem;}
+
+@media only screen and (min-width: 768px) { .sect1 { padding-bottom: 0em; } }
+.sect1 + .sect1 { border-top: 0px solid #dddddd; }
+
+#content h1 > a.anchor, h2 > a.anchor, h3 > a.anchor, #toctitle > a.anchor, .sidebarblock > .content > .title > a.anchor, h4 > a.anchor, h5 > a.anchor, h6 > a.anchor { position: absolute; z-index: 1001; width: 1.5ex; margin-left: -1.5ex; display: block; text-decoration: none !important; visibility: hidden; text-align: center; font-weight: 400; max-width: 1050px; }
+#content h1 > a.anchor:before, h2 > a.anchor:before, h3 > a.anchor:before, #toctitle > a.anchor:before, .sidebarblock > .content > .title > a.anchor:before, h4 > a.anchor:before, h5 > a.anchor:before, h6 > a.anchor:before { content: "\2771"; font-size: 0.85em; display: block; padding-top: 0.1em; vertical-align: bas }
+#content h1:hover > a.anchor, #content h1 > a.anchor:hover, h2:hover > a.anchor, h2 > a.anchor:hover, h3:hover > a.anchor, #toctitle:hover > a.anchor, .sidebarblock > .content > .title:hover > a.anchor, h3 > a.anchor:hover, #toctitle > a.anchor:hover, .sidebarblock > .content > .title > a.anchor:hover, h4:hover > a.anchor, h4 > a.anchor:hover, h5:hover > a.anchor, h5 > a.anchor:hover, h6:hover > a.anchor, h6 > a.anchor:hover { visibility: visible; }
+#content h1 > a.link, h2 > a.link, h3 > a.link, #toctitle > a.link, .sidebarblock > .content > .title > a.link, h4 > a.link, h5 > a.link, h6 > a.link { color: #244d82; text-decoration: none;  }
+#content h1 > a.link:hover, h2 > a.link:hover, h3 > a.link:hover, #toctitle > a.link:hover, .sidebarblock > .content > .title > a.link:hover, h4 > a.link:hover, h5 > a.link:hover, h6 > a.link:hover { color: #1e416e; }
+
+.audioblock, .imageblock, .literalblock, .listingblock, .stemblock, .videoblock { margin-bottom: 1.25em; }
+
+.admonitionblock td.content > .title, .audioblock > .title, .exampleblock > .title, .imageblock > .title, .listingblock > .title, .literalblock > .title, .stemblock > .title, .openblock > .title, .paragraph > .title, .quoteblock > .title, table.tableblock > .title, .verseblock > .title, .videoblock > .title, .dlist > .title, .olist > .title, .ulist > .title, .qlist > .title, .hdlist > .title { text-rendering: optimizeLegibility; text-align: left;   }
+
+table.tableblock > caption.title { white-space: nowrap; overflow: visible; max-width: 0;  }
+
+.paragraph.lead > p, #preamble > .sectionbody > .paragraph:first-of-type p { color: black; max-width: 66%}
+
+table.tableblock #preamble > .sectionbody > .paragraph:first-of-type p { font-size: inherit; }
+
+.admonitionblock > table { border-collapse: separate; border: 0; background: none; max-width: 80%;}
+.admonitionblock > table td.icon { text-align: center; width: 80px; }
+.admonitionblock > table td.icon img { max-width: none; }
+.admonitionblock > table td.icon .title { font-weight: bold; font-family: ITC Officina Serif W01, sans-serif, Georgia, Verdana, "Helvetica", Helvetica, Arial, sans-serif; text-transform: uppercase; }
+.admonitionblock > table td.content { padding-left: 1.125em; padding-right: 1.25em; border-left: 1px solid #dddddd; color: #417dcb; }
+.admonitionblock > table td.content > :last-child > :last-child { margin-bottom: 0; }
+
+.exampleblock > .content { border-style: solid; border-width: 1px; border-color: #e6e6e6; margin-bottom: 1.25em; padding: 1.25em; background-color: #fffef7; -webkit-border-radius: 0; border-radius: 0; }
+.exampleblock > .content > :first-child { margin-top: 0; }
+.exampleblock > .content > :last-child { margin-bottom: 0; }
+
+.sidebarblock { position: absolute; border-style: solid; border-width: 1px; border-color: #d9d9d9; margin: -2rem -7.5rem 0rem 63.65rem; padding: .2rem; background: #f2f2f2; -webkit-border-radius: 0; border-radius: 0; text-align: left; width: 5.5rem;}
+.sidebarblock > :first-child { margin-top: 0; }
+.sidebarblock > :last-child { margin-bottom: 0; }
+.sidebarblock > .content > .title { color: #6999d6; margin-top: 0; }
+
+@media only screen and (max-width: 1203px) { 
+.sidebarblock { position: absolute; right: 12%; }
+}
+@media only screen and (max-width: 817px) { 
+.sidebarblock { position: absolute; right: 18%; }
+}
+
+@media only screen and (max-width: 562px) { 
+.sidebarblock { position: absolute; right: 25%; }
+}
+
+.exampleblock > .content > :last-child > :last-child, .exampleblock > .content .olist > ol > li:last-child > :last-child, .exampleblock > .content .ulist > ul > li:last-child > :last-child, .exampleblock > .content .qlist > ol > li:last-child > :last-child, .sidebarblock > .content > :last-child > :last-child, .sidebarblock > .content .olist > ol > li:last-child > :last-child, .sidebarblock > .content .ulist > ul > li:last-child > :last-child, .sidebarblock > .content .qlist > ol > li:last-child > :last-child { margin-bottom: 0; }
+
+.literalblock pre, .listingblock pre:not(.highlight), .listingblock pre[class="highlight"], .listingblock pre[class^="highlight "], .listingblock pre.CodeRay, .listingblock pre.prettyprint { background: #eeeeee; }
+.sidebarblock .literalblock pre, .sidebarblock .listingblock pre:not(.highlight), .sidebarblock .listingblock pre[class="highlight"], .sidebarblock .listingblock pre[class^="highlight "], .sidebarblock .listingblock pre.CodeRay, .sidebarblock .listingblock pre.prettyprint { background: #f2f1f1; }
+
+.literalblock pre, .literalblock pre[class], .listingblock pre, .listingblock pre[class] { border: 1px solid #cccccc; -webkit-border-radius: 0; border-radius: 0; word-wrap: break-word; padding: 0.8em 0.8em 0.65em 0.8em; font-size: 0.8125em; }
+.literalblock pre.nowrap, .literalblock pre[class].nowrap, .listingblock pre.nowrap, .listingblock pre[class].nowrap { overflow-x: auto; white-space: pre; word-wrap: normal; }
+@media only screen and (min-width: 768px) { .literalblock pre, .literalblock pre[class], .listingblock pre, .listingblock pre[class] { font-size: 0.90625em; } }
+@media only screen and (min-width: 1280px) { .literalblock pre, .literalblock pre[class], .listingblock pre, .listingblock pre[class] { font-size: 1em; } }
+
+.literalblock.output pre { color: #eeeeee; background-color: black; }
+
+.listingblock pre.highlightjs { padding: 0;  margin-right: 0em; }
+.listingblock pre.highlightjs > code { padding: 0.8em 2rem 0.65em 0.8em; -webkit-border-radius: 0; border-radius: 0; padding-right: 2rem;}
+
+.listingblock > .content { position: relative; }
+
+.listingblock code[data-lang]:before { display: none; content: attr(data-lang); position: absolute; font-size: 0.75em; top: 0.425rem; right: 0.5rem; line-height: 1; text-transform: uppercase; color: #999; padding-right: 2rem; }
+
+.listingblock:hover code[data-lang]:before { display: block; }
+
+.listingblock.terminal pre .command:before { content: attr(data-prompt); padding-right: 0.5em; color: #999; }
+
+.listingblock.terminal pre .command:not([data-prompt]):before { content: "$"; }
+
+table.pyhltable { border-collapse: separate; border: 0; margin-bottom: 0; background: none; }
+
+table.pyhltable td { vertical-align: top; padding-top: 0; padding-bottom: 0; line-height: 1.4; }
+
+table.pyhltable td.code { padding-left: .75em; padding-right: 0; }
+
+pre.pygments .lineno, table.pyhltable td:not(.code) { color: #999; padding-left: 0; padding-right: .5em; border-right: 1px solid #dddddd; }
+
+pre.pygments .lineno { display: inline-block; margin-right: .25em; }
+
+table.pyhltable .linenodiv { background: none !important; padding-right: 0 !important; }
+
+.quoteblock { margin: 0 1em 1.25em 1.5em; display: table; }
+.quoteblock > .title { margin-left: -1.5em; margin-bottom: 0.75em; }
+.quoteblock blockquote, .quoteblock blockquote p { color: #132445; font-size: 1.15rem; line-height: 1.75; word-spacing: 0.1em; letter-spacing: 0; font-style: italic; text-align: justify; }
+.quoteblock blockquote { margin: 0; padding: 1rem; border: 0; }
+.quoteblock blockquote:before { content: "\201c"; float: left; font-size: 2.75em; font-weight: bold; line-height: 0.6em; margin-left: -0.6em; color: #6999d6; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); }
+.quoteblock blockquote > .paragraph:last-child p { margin-bottom: 0; }
+.quoteblock .attribution { margin-top: 1em; margin-right: 0.5ex; text-align: right; }
+.quoteblock .quoteblock { margin-left: 0; margin-right: 0; padding: 0.5em 0; border-left: 3px solid #417dcb; }
+.quoteblock .quoteblock blockquote { padding: 0 0 0 0.75em; }
+.quoteblock .quoteblock blockquote:before { display: none; }
+
+.verseblock { margin: 0 1em 1.25em 1em; }
+.verseblock pre { font-family: ITC Officina Serif W01, sans-serif, "Open Sans", "DejaVu Sans", sans; font-size: 1.15rem; color: #6999d6; font-weight: 300; text-rendering: optimizeLegibility; }
+.verseblock pre strong { font-weight: 400; }
+.verseblock .attribution { margin-top: 1.25rem; margin-left: 0.5ex; text-align: right;}
+
+.quoteblock .attribution, .verseblock .attribution { font-size: inherit; line-height: 1.45; font-style: italic; }
+.quoteblock .attribution br, .verseblock .attribution br { display: none; }
+.quoteblock .attribution cite, .verseblock .attribution cite { display: block; letter-spacing: -0.025em; color: #417dcb; }
+
+.quoteblock.abstract { margin: 0 0 1.25em 0; display: block; }
+.quoteblock.abstract blockquote, .quoteblock.abstract blockquote p { text-align: left; word-spacing: 0; }
+.quoteblock.abstract blockquote:before, .quoteblock.abstract blockquote p:first-of-type:before { display: none; }
+
+table.tableblock { max-width: 100%; border-collapse: separate;  }
+table.tableblock td > .paragraph:last-child p > p:last-child, table.tableblock th > p:last-child, table.tableblock td > p:last-child { margin-bottom: 0; }
+
+table.tableblock, th.tableblock, td.tableblock { border: 0 solid #dddddd; margin-right: 2rem;}
+
+table.grid-all th.tableblock, table.grid-all td.tableblock { border-width: 0 1px 1px 0; padding: 0.5rem;}
+
+table.grid-all tfoot > tr > th.tableblock, table.grid-all tfoot > tr > td.tableblock { border-width: 1px 1px 0 0; }
+
+table.grid-cols th.tableblock, table.grid-cols td.tableblock { border-width: 0 1px 0 0; }
+
+table.grid-all * > tr > .tableblock:last-child, table.grid-cols * > tr > .tableblock:last-child { border-right-width: 0; }
+
+table.grid-rows th.tableblock, table.grid-rows td.tableblock { border-width: 0 0 1px 0; }
+
+table.grid-all tbody > tr:last-child > th.tableblock, table.grid-all tbody > tr:last-child > td.tableblock, table.grid-all thead:last-child > tr > th.tableblock, table.grid-rows tbody > tr:last-child > th.tableblock, table.grid-rows tbody > tr:last-child > td.tableblock, table.grid-rows thead:last-child > tr > th.tableblock { border-bottom-width: 0;}
+
+table.grid-rows tfoot > tr > th.tableblock, table.grid-rows tfoot > tr > td.tableblock { border-width: 1px 0 0 0; }
+
+table.frame-all { border-width: 1px; }
+
+table.frame-sides { border-width: 0 1px; }
+
+table.frame-topbot { border-width: 1px 0; }
+
+th.halign-left, td.halign-left { text-align: left; }
+
+th.halign-right, td.halign-right { text-align: right; }
+
+th.halign-center, td.halign-center { text-align: center; }
+
+th.valign-top, td.valign-top { vertical-align: top; }
+
+th.valign-bottom, td.valign-bottom { vertical-align: bottom; }
+
+th.valign-middle, td.valign-middle { vertical-align: middle; }
+
+table thead th, table tfoot th { font-weight: 600; }
+
+tbody tr th { display: table-cell; line-height: 1.4; background: whitesmoke; }
+
+tbody tr th, tbody tr th p, tfoot tr th, tfoot tr th p { color: #222222; font-weight: 600; }
+
+p.tableblock > code:only-child { background: none; padding: 0; max-width: 100%}
+
+p.tableblock { font-size: 1em; max-width: 100% }
+
+td > div.verse { white-space: pre; }
+
+ol { margin-left: 1.75em; }
+
+ul li ol { margin-left: 1.5em; }
+
+
+dl dd { margin-left: 1.125em; }
+
+dl dd:last-child, dl dd:last-child > :last-child { margin-bottom: 0; }
+
+ol > li p, ul > li p, ul dd, ol dd, .olist .olist, .ulist .ulist, .ulist .olist, .olist .ulist { margin-bottom: -0.2em; }
+
+ul.unstyled, ol.unnumbered, ul.checklist, ul.none { list-style-type: none; }
+
+ul.unstyled, ol.unnumbered, ul.checklist { margin-left: 0.625em; }
+
+ul.checklist li > p:first-child > .fa-square-o:first-child, ul.checklist li > p:first-child > .fa-check-square-o:first-child { width: 1em; font-size: 0.85em; }
+
+ul.checklist li > p:first-child > input[type="checkbox"]:first-child { width: 1em; position: relative; top: 1px; }
+
+ul.inline { margin: 0 auto 0.625em auto; margin-left: -1.375em; margin-right: 0; padding: 0; list-style: disc; overflow: hidden; }
+ul.inline > li { list-style: none; float: left; margin-left: 1.375em; display: block; }
+ul.inline > li > * { display: block; }
+
+.unstyled dl dt { font-weight: normal; font-style: normal; }
+
+ol.arabic { list-style-type: decimal; }
+
+ol.decimal { list-style-type: decimal-leading-zero; }
+
+ol.loweralpha { list-style-type: lower-alpha; }
+
+ol.upperalpha { list-style-type: upper-alpha; }
+
+ol.lowerroman { list-style-type: lower-roman; }
+
+ol.upperroman { list-style-type: upper-roman; }
+
+ol.lowergreek { list-style-type: lower-greek; }
+
+.hdlist > table, .colist > table { border: 0; background: none; }
+.hdlist > table > tbody > tr, .colist > table > tbody > tr { background: none; }
+
+td.hdlist1, td.hdlist2 { vertical-align: top; padding: 0 0.625em; }
+
+td.hdlist1 { font-weight: bold; padding-bottom: 1.25em; }
+
+.literalblock + .colist, .listingblock + .colist { margin-top: -0.5em;  }
+
+.colist > table tr > td:first-of-type { padding: 0 0.75em; line-height: 1; }
+.colist > table tr > td:last-of-type { padding: 0.25em 0; }
+
+.thumb, .th { line-height: 0; display: inline-block; border: solid 4px white; -webkit-box-shadow: 0 0 0 1px #dddddd; box-shadow: 0 0 0 1px #dddddd; }
+
+.imageblock.left, .imageblock[style*="float: left"] { margin: 0.25em 0.625em 1.25em 0;   }
+.imageblock.right, .imageblock[style*="float: right"] { margin: 0.25em 0 1.25em 0.625em;  }
+.imageblock > .title { margin-bottom: 0; }
+.imageblock.thumb, .imageblock.th { border-width: 6px; }
+.imageblock.thumb > .title, .imageblock.th > .title { padding: 0 0.125em; }
+
+.image.left, .image.right { margin-top: 0.25em; margin-bottom: 0.25em; display: inline-block; line-height: 0; }
+.image.left { margin-right: 0.625em; }
+.image.right { margin-left: 0.625em; }
+
+a.image { text-decoration: none; display: inline-block; }
+a.image object { pointer-events: none; }
+
+sup.footnote, sup.footnoteref { font-size: 0.875em; position: static; vertical-align: super; }
+sup.footnote a, sup.footnoteref a { text-decoration: none; }
+sup.footnote a:active, sup.footnoteref a:active { text-decoration: underline; }
+
+#footnotes { padding-top: 0.75em; padding-bottom: 0.75em; margin-bottom: 0.625em; }
+#footnotes hr { width: 20%; min-width: 6.25em; margin: -0.25em 0 0.75em 0; border-width: 1px 0 0 0; }
+#footnotes .footnote { padding: 0 0.375em 0 0.225em; line-height: 1.3334; font-size: 0.875em; margin-left: 1.2em; text-indent: -1.05em; margin-bottom: 0.2em; }
+#footnotes .footnote a:first-of-type { font-weight: bold; text-decoration: none; }
+#footnotes .footnote:last-of-type { margin-bottom: 0; }
+#content #footnotes { margin-top: -0.625em; margin-bottom: 0; padding: 0.75em 0; }
+
+.gist .file-data > table { border: 0; background: #fff; width: 100%; margin-bottom: 0; }
+.gist .file-data > table td.line-data { width: 99%; }
+
+div.github-block { text-align: right; margin-right: -1rem; }
+div.gist {padding-right: 2rem;}
+
+div.unbreakable { page-break-inside: avoid; }
+
+.big { font-size: larger; }
+
+.small { font-size: smaller; }
+
+.underline { text-decoration: underline; }
+
+.overline { text-decoration: overline; }
+
+.line-through { text-decoration: line-through; }
+
+.aqua { color: #00bfbf; }
+
+.aqua-background { background-color: #00fafa; }
+
+.black { color: black; }
+
+.black-background { background-color: black; }
+
+.blue { color: #0000bf; }
+
+.blue-background { background-color: #0000fa; }
+
+.fuchsia { color: #bf00bf; }
+
+.fuchsia-background { background-color: #fa00fa; }
+
+.gray { color: #606060; }
+
+.gray-background { background-color: #7d7d7d; }
+
+.green { color: #006000; }
+
+.green-background { background-color: #007d00; }
+
+.lime { color: #00bf00; }
+
+.lime-background { background-color: #00fa00; }
+
+.maroon { color: #600000; }
+
+.maroon-background { background-color: #7d0000; }
+
+.navy { color: #000060; }
+
+.navy-background { background-color: #00007d; }
+
+.olive { color: #606000; }
+
+.olive-background { background-color: #7d7d00; }
+
+.purple { color: #600060; }
+
+.purple-background { background-color: #7d007d; }
+
+.red { color: #bf0000; }
+
+.red-background { background-color: #fa0000; }
+
+.silver { color: #909090; }
+
+.silver-background { background-color: #bcbcbc; }
+
+.teal { color: #006060; }
+
+.teal-background { background-color: #007d7d; }
+
+.white { color: #bfbfbf; }
+
+.white-background { background-color: #fafafa; }
+
+.yellow { color: #bfbf00; }
+
+.yellow-background { background-color: #fafa00; }
+
+span.icon > .fa { cursor: default; }
+
+.admonitionblock td.icon [class^="fa icon-"] { font-size: 2.5em; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); cursor: default; }
+.admonitionblock td.icon .icon-note:before { content: "\f05a"; color: #207c98; }
+.admonitionblock td.icon .icon-tip:before { content: "\f0eb"; text-shadow: 1px 1px 2px rgba(155, 155, 0, 0.8); color: #111; }
+.admonitionblock td.icon .icon-warning:before { content: "\f071"; color: #bf6900; }
+.admonitionblock td.icon .icon-caution:before { content: "\f06d"; color: #bf3400; }
+.admonitionblock td.icon .icon-important:before { content: "\f06a"; color: #bf0000; }
+
+.conum[data-value] { display: inline-block; color: #fff !important; background-color: #222222; -webkit-border-radius: 100px; border-radius: 100px; text-align: center; font-size: 0.75em; width: 1.67em; height: 1.67em; line-height: 1.67em; font-family: ITC Officina Sans W01, sans-serif, "Open Sans", "DejaVu Sans", sans-serif; font-style: normal; font-weight: bold; }
+.conum[data-value] * { color: #fff !important; }
+.conum[data-value] + b { display: none; }
+.conum[data-value]:after { content: attr(data-value); }
+pre .conum[data-value] { position: relative; top: -0.125em; }
+
+b.conum * { color: inherit !important; }
+
+
+.conum:not([data-value]):empty { display: none; }
+
+.literalblock pre, .listingblock pre { background: #eeeeee; }
+
+div#remarks.ulist {
+	max-width: 70%;
+}
+
+div.title:first-of-type {
+    display: none;
+}
+
+/* Mobile */
+
+@media only screen and (max-width: 800px) {
+	a#bottomright {visibility: hidden;}
+	.sectionbody.paragraph {max-width: 100%}
+	.paragraph.lead > p, #preamble > .sectionbody > .paragraph:first-of-type p { max-width: 100% }
+}
+
+#div.paragraph.faq-intro {
+	max-width: 66.66%
+}
+/* ========================================================================== Mobile Menu ======================================================================= */
+#menu {
+    display: none;
+    }
+
+div.slicknav_menu {
+    padding-top: 5px;
+    padding-right: 15px;
+    background-color: #132445;
+    margin-left: -2rem;
+    margin-right: -2rem;
+    text-align: right;
+    display: none;
+    right: 10px;
+    font-size: 1rem;
+    color: white;
+    padding-bottom: 2rem;
+    background: url("logo.png");
+    background-repeat: no-repeat;
+    background-color: #132445;
+}
+
+span.slicknav_menutxt {
+    margin-right: -20px;
+    color: white;
+}
+
+div.slicknav_menu a.scroll:first-of-type {
+    color: #F7D425;
+    font-size: 120%;
+    font-weight: 600;
+}
+div.slicknav_menu ul li a {
+    color: white;
+}
+div.slicknav_menu ul li a:hover {
+    color: #F7D425;
+}
+
+div.slicknav_menu a:hover {color: #F7D425; }
+div.slicknav_menu a:visited {color: white; }
+div.slicknav_menu a {color: white;}
+a.slicknav_btn  {
+    padding: 1rem;
+}
+
+
+li.slicknav_parent.slicknav_open {
+    color: white;
+}
+
+li.slicknav_parent.slicknav_open  {
+    color: white;
+}
+
+@media screen and (max-width: 890px) {
+    div.slicknav_menu {
+        display: block;
+        color: white
+    }
+    #mobile-banner {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 470px) {
+div.slicknav_menu ul:first-of-type {
+    margin-top: 1.5rem;
+}
+
+div.slicknav_menu ul li {
+    color: white;
+}
+div.slicknav_menu ul li:hover {
+    color: #F7D425;
+}
+}
+div.slicknav_menu li:last-of-type
+    {
+        padding-bottom: 0.7rem;
+    }
+/* ========================================================================== NavMenu ======================================================================= */
+
+.banner {
+  height: 1rem;
+  padding-right: 2rem;
+  max-height: 1rem;  
+  max-width: 50%;
+  vertical-align: middle;
+
+  @media (max-width: 800px) {
+    flex-basis: 66.666%%;
+    max-width: 25%;
+    margin: 1rem;
+
+  }
+}
+
+
+
+#menubar ul { margin: 0; padding: 0; white-space:nowrap; padding-left: 10px; padding-right: 10px; }
+#menubar li { margin: 0; padding: 0;   }
+#menubar a { margin: 0; padding: 0;}
+#menubar ul {list-style: none; text-align: right;}
+#menubar a {text-decoration: none;}
+#menubar li {margin-left: 0;}
+#menubar {height: 70px; background-color: #132445; /* box-shadow: 0px 2px 3px rgba(0,0,0,.4); */ position: relative; padding-right: 2rem; margin-left: -2rem;  margin-right: -2rem;  color: white; font-size: 1.9rem;}
+
+
+#menubar > ul > li {
+
+    display:inline-block;
+    margin: 0.2rem;
+    position: relative;
+    z-index: 10000;
+    flex-basis: 66.666%%;
+    font-weight: 700;
+
+}
+
+#menubar img {
+	padding-left: 1rem;
+	padding-top: 0.2rem;
+}
+
+
+@media only screen and (max-width: 890px) {
+
+  #menubar > ul > li, #menubar {
+    visibility: hidden;
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+#menubar {
+  display: none;
+}
+
+#logo {
+  margin-top: -55px;
+}
+
+}
+
+#logo {
+  height: 40px;
+  width: 344.8px;
+  margin-left: 40px;
+  margin-top: 17px;
+  position: relative;
+  overflow: hidden;
+}
+
+#menubar > ul > li::after {
+    content: " · ";
+    position: relative;
+    top: 3px;
+    padding-left: 3px;
+    font-weight: 400;
+}
+
+#menubar > ul > li:last-of-type::after {
+  content: none;
+}
+#menubar > ul > li:last-of-type {
+  padding-right: -1rem;
+}
+
+#menubar > ul > li > a {
+    color: #FFFFFF;
+    font-size:  1.2rem;
+    line-height: 50px; 
+    font-weight: 400;
+    /* padding-top: 2rem; */
+    webkit-transition: color .15s;
+    -moz-transition: color .15s;
+    -o-transition: color .15s;
+    transition: color .15s;
+    white-space:nowrap; 
+    -webkit-font-smoothing: auto;
+    letter-spacing: -.01em;
+    padding-top: 0.2em;
+    padding-left: 0.1rem;
+    padding-right: 0.1rem;
+}
+
+#menubar > ul {
+    margin-right: 12px;
+    margin-top: 1px;
+}
+
+#menubar > ul > li > a:hover {color: #F7D425; }
+body.home li.home, body.tech li.tech {font-weight:bold; }
+
+#menubar > ul > li > ul {
+    opacity: 0;
+    visibility: hidden;
+    padding: 18px 0 20px 0;
+    background-color: #FFFFFF; /* rgb(15,26,54); top menu color */
+    text-align: left;
+    position: absolute;
+    top: 55px;
+    left: 50%;
+    margin-left: -90px;
+-webkit-transition: all .3s .1s;
+   -moz-transition: all .3s .1s;
+     -o-transition: all .3s .1s;
+        transition: all .3s .1s;
+-webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+        border-radius: 5px;
+-webkit-box-shadow: 0px 1px 3px rgba(0,0,0,.4);
+   -moz-box-shadow: 0px 1px 3px rgba(0,0,0,.4);
+        box-shadow: 0px 1px 3px rgba(0,0,0,.4);
+}
+
+#menubar > li li {
+    width:100%;
+}
+
+#menubar > ul > li:hover > ul {
+    opacity: 1;
+    top: 65px;
+    visibility: visible;
+}
+
+#menubar > ul > li > ul:before{
+    content: '';
+    display: block;
+    border-color: transparent transparent #FFFFFF transparent;
+    border-style: solid;
+    border-width: 10px;
+    position: absolute;
+    top: -20px;
+    left: 10%;
+    margin-left: -10px;
+}
+
+#menubar > ul ul > li { position: relative;}
+
+#menubar ul ul a{
+    color: rgb(50,50,50);
+    font-family: ITC Officina Serif W01, sans-serif, Verdana, 'Lucida Grande';
+    font-size: 17px;
+    background-color: #FFFFFF; /* rgb(15,26,54); top menu color */
+    padding: 5px 8px 7px 16px;
+    display: block;
+-webkit-transition: background-color .1s;
+   -moz-transition: background-color .1s;
+     -o-transition: background-color .1s;
+        transition: background-color .1s;
+}
+
+#menubar ul ul a:hover {background-color: #244D82; color: #F7D425;}
+
+#menubar ul ul ul {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: -16px;
+    left: 206px;
+    padding: 16px 0 20px 0;
+    background-color: #527AA3;
+    text-align: left;
+    width: 160px;
+-webkit-transition: all .3s;
+   -moz-transition: all .3s;
+     -o-transition: all .3s;
+        transition: all .3s;
+-webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+        border-radius: 5px;
+-webkit-box-shadow: 0px 1px 3px rgba(0,0,0,.4);
+   -moz-box-shadow: 0px 1px 3px rgba(0,0,0,.4);
+        box-shadow: 0px 1px 3px rgba(0,0,0,.4);
+}
+
+
+#menubar ul ul > li:hover > ul { opacity: 1; left: 196px; visibility: visible;}
+
+
+#menubar ul ul a:hover{
+    background-color: #244D82;
+    color: #F7D425;
+}
+
+/* ========================================================================== Back-to-top button ======================================================================= */
+
+a.back-to-top {
+	display: none;
+	width: 25px;
+	height: 25px;
+	text-indent: -9999px;
+	position: fixed;
+	z-index: 999;
+	right: 15%;
+	bottom: 5%;
+	background: #032c52 url("up-arrow.png") no-repeat center 43%;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	border-radius: 30px;
+}
+
+a:hover.back-to-top {
+	background-color: #F7D425 ;
+}
+#tocbutton {
+	visibility: hidden;
+}
+
+#tocbuttonbars.fa.fa-bars {
+	z-index: 1000;
+	right: 0;
+}
+
+#tocbutton:hover {
+	background: url("yellowbars.png") no-repeat center 50%;
+}
+
+
+body.toc2.toc-right a.back-to-top {
+	width: 25px;
+	height: 25px;
+	text-indent: -9999px;
+	position: fixed;
+	z-index: 1001;
+	right: 90px;
+	bottom: 20px;
+	background: #032c52 url("up-arrow.png") no-repeat center 43%;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	border-radius: 30px;
+}
+
+body.toc2.toc-right #tocbutton {
+	visibility: visible;
+	width: 25px;
+	height: 25px;
+	text-indent: -9999px;
+	position: fixed;
+	z-index: 998;
+	border: none;
+	right: 25px;
+	top: 5px;
+	background: url("bars.png") no-repeat center 50%;
+}
+
+body.toc2.toc-right #tocbutton:hover {
+	background-color: #e3f2ff;
+	background: url("yellowbars.png") no-repeat center 50%;
+}
+
+body.toc2.toc-right a:hover.back-to-top {
+	background-color: #F7D425 ;
+}
+
+@media only screen and (max-width: 1535px) {
+	body.toc2.toc-right #tocbutton {
+	background: url("yellowbars.png") no-repeat center 50%;
+	left: 98%;
+	z-index: 100000;
+}
+@media only screen and (max-width: 1434px) {
+	body.toc2.toc-right #tocbutton {
+	visibility: hidden;
+}
+
+@media only screen and (min-width: ) 
+
+
+@media only screen and (max-width: 1462px) {
+	a.back-to-top {
+	left: 90%;
+}
+
+
+
+
+/* ========================================================================== AsciiSpec ======================================================================= */
+.requirement {
+	border: 1px solid #aaaaaa;
+	padding: 0.5em;
+	margin-bottom: 1rem;
+}
+
+.bibliography .content .paragraph p :first-child::before { 
+	color:#777777;
+	content: "[" attr(id) "] "; }
+
+.bibliography .content .paragraph {
+	padding-left: 6em;
+	text-indent: -6em;
+
+</style>
+<link rel="stylesheet" href="./AsciiDoc Syntax Cheat Sheet_files/font-awesome.min.css">
+<!-- ************* Meta ************* -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<!-- ************* OpenGraph ************-->
+<meta name="description" content="Datamodel Documentation">
+
+<!-- ************* Favicon ************-->
+<link rel="icon" href="https://www.numberfour.eu/favicon.ico">
+
+<!-- ************* Styles ************* -->
+<link rel="stylesheet" type="text/css" href="./AsciiDoc Syntax Cheat Sheet_files/n4-adoc.css">
+
+<!-- ************* Back-to-top JQuery ************* -->
+<script src="./AsciiDoc Syntax Cheat Sheet_files/jquery-1.12.4.js"></script>
+<script src="./AsciiDoc Syntax Cheat Sheet_files/jquery-ui.js"></script>
+<script src="./AsciiDoc Syntax Cheat Sheet_files/nav-mobile.js"></script>
+
+<!-- ****************** NavBar ****************** -->
+</head><body class="book toc2 toc-right"><div class="slicknav_menu"><a href="/public/asciispec-cheatsheet.html#" aria-haspopup="true" role="button" tabindex="0" class="slicknav_btn slicknav_collapsed" style="outline: none;"><span class="slicknav_menutxt">☰</span><span class="slicknav_icon"><span class="slicknav_icon-bar"></span><span class="slicknav_icon-bar"></span><span class="slicknav_icon-bar"></span></span></a><ul class="slicknav_nav slicknav_hidden" style="display: none;" aria-hidden="true" role="menu">
+	<!-- <li><a class="scroll" href="/view/30" role="menuitem" tabindex="-1">Docs Index</a></li> -->
+	<li class="slicknav_collapsed slicknav_parent"><a href="/public/asciispec-cheatsheet.html#" role="menuitem" aria-haspopup="true" tabindex="-1" class="slicknav_item slicknav_row" style="outline: none;"><a class="scroll" tabindex="-1">AsciiDoc</a>
+	  	<span class="slicknav_arrow"> › </span></a><ul role="menu" class="slicknav_hidden" style="display: none;" aria-hidden="true">
+		    <li><a href="/public/asciispec-cheatsheet.html" role="menuitem" tabindex="-1">Syntax Cheat Sheet</a></li>
+		    <li><a href="/public/asciispec-cheatsheet.html" role="menuitem" tabindex="-1">Custom AsciiSpec Macros</a></li>
+		</ul>
+	</li>
+</ul></div><a href="/public/asciispec-cheatsheet.html#" class="back-to-top">Back to Top</a><div id="menubar">
+    <div class="banner">
+      <img src="/public/logo.png" alt="Datamodel Documentation">
+    </div>
+<ul class="fa-ul">
+	<!-- <li><a href="/view/30">Docs Index</a></li> -->
+	<li><a></i>AsciiDoc</a>
+          <ul>
+            <li><a href="/public/asciidoc-cheatsheet.html"></i>Syntax Cheat Sheet</a></li>
+            <li><a href="/public/asciispec-cheatsheet.html"></i>Custom AsciiSpec Macros</a></li>
+        </ul>
+      </li>
+</ul>
+</div>
+<button id="tocbutton">TOC</button>
+<!-- ****************** Mobile NavBar ****************** -->
+<div class="mobile-navbar">
+<ul id="menu">
+	<!-- <li><a class="scroll" href="/view/30">Docs Index</a></li> -->
+	<li><a class="scroll">AsciiDoc</a>
+          <ul>
+            <li><a href="/public/asciidoc-cheatsheet.html"></i>Syntax Cheat Sheet</a></li>
+            <li><a href="/public/asciispec-cheatsheet.html"></i>Custom AsciiSpec Macros</a></li>
+        </ul>
+      </li>
+</ul>
+</div>
+
+
+<div id="header">
+<h1>AsciiDoc Syntax Cheat Sheet</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="/public/asciispec-cheatsheet.html#_basic-formatting">1. Basic Formatting</a></li>
+<li><a href="/public/asciispec-cheatsheet.html#_document-structure">2. Document Structure</a></li>
+<li><a href="/public/asciispec-cheatsheet.html#_lists">3. Lists</a></li>
+<li><a href="/public/asciispec-cheatsheet.html#_cross-references-anchors">4. Cross-References &amp; Anchors</a></li>
+<li><a href="/public/asciispec-cheatsheet.html#_blocks">5. Blocks</a></li>
+<li><a href="/public/asciispec-cheatsheet.html#_macros">6. Macros</a></li>
+<li><a href="/public/asciispec-cheatsheet.html#_macros-and-blocks-examples">7. Macros and Blocks Examples</a>
+<ul class="sectlevel2">
+<li><a href="/public/asciispec-cheatsheet.html#_admonition-blocks">7.1. Admonition Blocks</a></li>
+</ul>
+</li>
+<li><a href="/public/asciispec-cheatsheet.html#_special-characters">8. Special Characters</a>
+<ul class="sectlevel2">
+<li><a href="/public/asciispec-cheatsheet.html#_escaping-substitutions">8.1. Escaping Substitutions</a></li>
+</ul>
+</li>
+<li><a href="/public/asciispec-cheatsheet.html#_tables">9. Tables</a>
+<ul class="sectlevel2">
+<li><a href="/public/asciispec-cheatsheet.html#_basics">9.1. Basics</a></li>
+<li><a href="/public/asciispec-cheatsheet.html#_table-attributes">9.2. Table Attributes</a></li>
+<li><a href="/public/asciispec-cheatsheet.html#_spanning-rows-columns">9.3. Spanning rows &amp; columns</a></li>
+<li><a href="/public/asciispec-cheatsheet.html#_cell-content-alignment">9.4. Cell Content Alignment</a></li>
+<li><a href="/public/asciispec-cheatsheet.html#_column-styles">9.5. Column Styles</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>A cheatsheet for default AsciiDoc syntax.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_basic-formatting"><a class="anchor" href="/public/asciispec-cheatsheet.html#_basic-formatting"></a>1. Basic Formatting</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 50%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Source</th>
+<th class="tableblock halign-left valign-top">Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Italic</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">_italic phrase_</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><em>italic phrase</em></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Bold Phrase</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">*bold phrase*</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><strong>bold phrase</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Constrained Bold Letters</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">**b**old le**tt**ers</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><strong>b</strong>old le<strong>tt</strong>ers</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Bold Italic Phrase</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">*_bold italic phrase_*</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><strong><em>bold italic phrase</em></strong></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Monospace</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">`monospace phrase` and le``tt``ers</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><code>monospace phrase</code> and le<code>tt</code>ers</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Monospace Bold Italic</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">`*_monospace bold italic phrase_*` and le``**__tt__**``ers</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><code><strong><em>monospace bold italic phrase</em></strong></code> and le<code><strong><em>tt</em></strong></code>ers</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Links</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">https://github.com/asciidoctor[Asciidoctor @ *GitHub*]</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><a href="https://github.com/asciidoctor">Asciidoctor @ <strong>GitHub</strong></a></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Mailto</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">brian.smith@numberfour.eu</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><a href="mailto:brian.smith@numberfour.eu">brian.smith@numberfour.eu</a></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Page Break</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;&lt;&lt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Line Breaks Block Attribute</p></th>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Line<br>
+Breaks<br>
+Consumed<br></p>
+</div>
+<div class="paragraph">
+<p><code>[%hardbreaks]</code><br>
+Defined once as<br>
+a block<br>
+attribute</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Line
+Breaks
+Consumed</p>
+</div>
+<div class="paragraph">
+<p>Defined once as<br>
+a block<br>
+attribute</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Shorthand</p></th>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Line
+ <code>+</code><br>
+Breaks
+ <code>+</code><br>
+Preserved</p>
+</div>
+<div class="paragraph">
+<p>* Retain<br>
+<code>+</code><br>
+list<br>
+<code>+</code><br>
+indentation</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Line<br>
+Breaks<br>
+Preserved</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Retain</p>
+<div class="paragraph">
+<p>list</p>
+</div>
+<div class="paragraph">
+<p>indentation</p>
+</div>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="sect2">
+<h3 id="_comments"><a class="anchor" href="/public/asciispec-cheatsheet.html#_comments"></a>1. Comments</h3>
+
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>//</code> A single-line comment.</p></td>
+<td class="tableblock halign-left valign-top"><div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Comment Block</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>////</code><br></p></td>
+<td class="tableblock halign-left valign-top"><div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_document-structure"><a class="anchor" href="/public/asciispec-cheatsheet.html#_document-structure"></a>2. Document Structure</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Level 0</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>= Document Title (Level 0)</strong></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Level 1</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>== Level 1 Section Title</strong></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Level 2</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>=== Level 2 Section Title</strong></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Level 3</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>==== Level 3 Section Title</strong></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Level 4</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>===== Level 4 Section Title</strong></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Level 5</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>====== Level 5 Section Title</strong></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_lists"><a class="anchor" href="/public/asciispec-cheatsheet.html#_lists"></a>3. Lists</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 40%;">
+<col style="width: 40%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Source</th>
+<th class="tableblock halign-left valign-top">Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mixed numbered &amp; unordered</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-adoc" data-lang="adoc">Operating Systems::
+Linux:::
+. Fedora
+* Desktop
+. Ubuntu
+* Server
+** 16.04.1 LTS
+* Desktop</code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="dlist">
+<dl>
+<dt class="hdlist1">Operating Systems</dt>
+<dd>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Linux</dt>
+<dd>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Fedora</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Desktop</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Ubuntu</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Server</p>
+<div class="ulist">
+<ul>
+<li>
+<p>16.04.1 LTS</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Desktop</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</dd>
+</dl>
+</div>
+</dd>
+</dl>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Labeled list</p></th>
+<td class="tableblock halign-left valign-top"><div><div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-adoc" data-lang="adoc">first term::
+definition of first term
+second term::
+definition of second term</code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="dlist">
+<dl>
+<dt class="hdlist1">first term</dt>
+<dd>
+<p>definition of first term</p>
+</dd>
+<dt class="hdlist1">second term</dt>
+<dd>
+<p>definition of second term</p>
+</dd>
+</dl>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_cross-references-anchors"><a class="anchor" href="/public/asciispec-cheatsheet.html#_cross-references-anchors"></a>4. Cross-References &amp; Anchors</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 40%;">
+<col style="width: 40%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Source</th>
+<th class="tableblock halign-left valign-top">Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Internal Cross Reference</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Link to any <code>&lt;&lt;Cross-References &amp; Anchors,section title&gt;&gt;</code>.<br>
+Or link to another <code>&lt;&lt;minor-topic,anchor&gt;&gt;</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Link to any <a href="/public/asciispec-cheatsheet.html#_cross-references-anchors">section title</a>.<br>
+Or link to another <a href="/public/asciispec-cheatsheet.html#minor-topic">anchor</a>.</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Inline Anchor</p></th>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>We can <code>[[minor-topic]]</code> create an anchor to this topic inline<br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Can be placed <code>[[anchored-list]]</code> anywhere text is allowed</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>We can create an anchor <a id="minor-topic"></a> to this topic inline<br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Can be placed <a id="anchored-list"></a> anywhere text is allowed</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_blocks"><a class="anchor" href="/public/asciispec-cheatsheet.html#_blocks"></a>5. Blocks</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Declaration</th>
+<th class="tableblock halign-left valign-top">Delimiter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Fenced Code</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N/A</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>```</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Example</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[example]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>====</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Literal</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[literal]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>....</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Passthrough</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[pass]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>++++</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Quote</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[quote]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>____</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Sidebar</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[sidebar]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>****</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Math</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[stem]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>++++</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_macros"><a class="anchor" href="/public/asciispec-cheatsheet.html#_macros"></a>6. Macros</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Source</th>
+<th class="tableblock halign-left valign-top">Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Passthrough</p></th>
+<td class="tableblock halign-left valign-top"><div><div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-adoc" data-lang="adoc">pass:[**This text `passes` unformatted**]</code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>**This text `passes` unformatted**</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Link</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>link:url[optional link text, optional target attribute, optional role attribute]</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><a href="/public/url">optional link text, optional target attribute, optional role attribute</a></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">anchor</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>anchor:anchor-id[Anchor Title]</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><a id="anchor-id"></a></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">xref</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>xref:link-macro-attributes[use attributes within the link macro]</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><a href="/public/asciispec-cheatsheet.html#link-macro-attributes">use attributes within the link macro</a></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Include tags</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tag::tagname[]<br>
+</code></p><p class="tableblock"><code>end::tagname[]</code></p></td>
+<td class="tableblock halign-left valign-top"><div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Include</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>include::filename.adoc[leveloffset=offset]
+</code></p><p class="tableblock"><code>include::file2.adoc[tags=section1,section2]
+</code></p><p class="tableblock"><code>include::file3.adoc[lines=ranges,indent=depth]</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Includes referenced file(s) dictated by the comma-separated attributes.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Image</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>image::images/adoc-logo.png[My Logo, 100,130]</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="imageblock">
+<div class="content">
+<img src="data:image/png;base64,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" alt="My Logo" width="100" height="130">
+</div>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Local Video File (with optional attributes)</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>video::video_file.mp4[width=640, start=60, end=140, options=autoplay]</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="videoblock">
+<div class="content">
+<video src="video_file.mp4#t=60,140" autoplay="" controls="">
+Your browser does not support the video tag.
+</video>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">YouTube</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>video::xkLAhU74f3s[youtube]</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="videoblock">
+<div class="content">
+<iframe src="./AsciiDoc Syntax Cheat Sheet_files/xkLAhU74f3s.html" frameborder="0" allowfullscreen=""></iframe>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Vimeo</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>video::29091457[vimeo]</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="videoblock">
+<div class="content">
+<iframe src="./AsciiDoc Syntax Cheat Sheet_files/29091457.html" frameborder="0" allowfullscreen=""></iframe>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Audio</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>audio::ocean_waves.mp3[options="autoplay,loop"]</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="audioblock">
+<div class="content">
+<audio src="ocean_waves.mp3" autoplay="" controls="" loop="">
+Your browser does not support the audio tag.
+</audio>
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_macros-and-blocks-examples"><a class="anchor" href="/public/asciispec-cheatsheet.html#_macros-and-blocks-examples"></a>7. Macros and Blocks Examples</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 40%;">
+<col style="width: 40%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Source</th>
+<th class="tableblock halign-left valign-top">Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Listing Block</p></th>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><code>.My Code Snippet</code><br>
+<code>[source,javascript]</code><br>
+<code>----</code><br>
+Math.min(0, 150, -8, -200);</p>
+</div>
+<div class="paragraph">
+<p>var fruits = ["Banana", "Mango"];<br>
+fruits.sort();<br>
+<code>----</code><br></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="listingblock">
+<div class="title">My Code Snippet</div>
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">Math.min(0, 150, -8, -200);
+
+var fruits = ["Banana", "Mango"];
+fruits.sort();</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Block Macro</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Previous block separated by empty line…​
+</p><p class="tableblock"><code>image::images/adoc-logo.png[Logo,40,50]</code>
+</p><p class="tableblock">Next block…​</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Previous block separated by empty line…​</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="data:image/png;base64,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" alt="Logo" width="40" height="50">
+</div>
+</div>
+<div class="paragraph">
+<p>Next block…​</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Inline Block Macro</p></th>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>insert a <code>image:images/adoc-logo.png[AsciiDoctor Logo,15,18]</code> directly into a sentence or block.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">insert a <span class="image"><img src="data:image/png;base64,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" alt="AsciiDoctor Logo" width="15" height="18"></span> directly into a sentence or block.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="_admonition-blocks"><a class="anchor" href="/public/asciispec-cheatsheet.html#_admonition-blocks"></a>7.1. Admonition Blocks</h3>
+<div class="paragraph">
+<p>By default, the following admonition blocks are available; <code>TIP</code>, <code>NOTE</code>, <code>IMPORTANT</code>, <code>CAUTION</code>, <code>WARNING</code>.
+They render as with the <code>WARNING</code> block below, except with different icons.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-adoc" data-lang="adoc">WARNING: Don't divide by zero. In ordinary arithmetic, the expression has no meaning, as there...</code></pre>
+</div>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tbody><tr>
+<td class="icon">
+<i class="fa icon-warning" title=""></i>
+</td>
+<td class="content">
+Don’t divide by zero. In ordinary arithmetic, the expression has no meaning, as there…​
+</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_special-characters"><a class="anchor" href="/public/asciispec-cheatsheet.html#_special-characters"></a>8. Special Characters</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Hexadecimal and HTML Character Entities can be substituted by prepending the code with an ampersand <code>&amp;</code> and appending with a semicolon <code>;</code>.
+See the following table for examples:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Example</th>
+<th class="tableblock halign-left valign-top">Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Hexadecimal</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&amp;#x00A7;</code></p></td>
+<th class="tableblock halign-left valign-top"><p class="tableblock">§</p></th>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">AsciiDoc Syntax</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>=&gt;</code></p></td>
+<th class="tableblock halign-left valign-top"><p class="tableblock">⇒</p></th>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">HTML Character Entities</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&amp;ne;</code></p></td>
+<th class="tableblock halign-left valign-top"><p class="tableblock">≠</p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="3"><p class="tableblock">Arrows</p></th>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Right single arrow</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-&gt;</code></p></td>
+<th class="tableblock halign-left valign-top"><p class="tableblock">→</p></th>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Right double arrow</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>=&gt;</code></p></td>
+<th class="tableblock halign-left valign-top"><p class="tableblock">⇒</p></th>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Left single arrow</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;-</code></p></td>
+<th class="tableblock halign-left valign-top"><p class="tableblock">←</p></th>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Left double arrow</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;=</code></p></td>
+<th class="tableblock halign-left valign-top"><p class="tableblock">⇐</p></th>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Source</th>
+<th class="tableblock halign-left valign-top">Unicode</th>
+<th class="tableblock halign-left valign-top">Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Copyright</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>(C)</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&amp;#169;</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>©</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Registered</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>(R)</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&amp;#174;</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>®</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Trademark</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>(TM)</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&amp;#8482;</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>™</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Reference Charts: </dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://dev.w3.org/html5/html-author/charref">Common Character Reference Chart</a></p>
+</li>
+<li>
+<p><a href="http://asciidoctor.org/docs/user-manual/#char-ref-sidebar">Official AsciiDoctor Docs - special characters</a></p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+<div class="sect2">
+<h3 id="_escaping-substitutions"><a class="anchor" href="/public/asciispec-cheatsheet.html#_escaping-substitutions"></a>8.1. Escaping Substitutions</h3>
+<div class="paragraph">
+<p>Use the backslash <code>\</code> to escape subsitutions:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Example: </dt>
+</dl>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Source</th>
+<th class="tableblock halign-left valign-top">Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>\(C)</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>(C)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>\&amp;#174;</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>&amp;#174;</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tables"><a class="anchor" href="/public/asciispec-cheatsheet.html#_tables"></a>9. Tables</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_basics"><a class="anchor" href="/public/asciispec-cheatsheet.html#_basics"></a>9.1. Basics</h3>
+<div class="paragraph">
+<p>Tables begin and end with <code>|===</code> and a vertical bar <code>|</code> will create a new cell.
+Below we have the minimum required to produce a basic table:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Example: </dt>
+</dl>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-adoc" data-lang="adoc"><code>|===</code>
+<code>|</code> Hello <code>|</code> world
+<code>|===</code></code></pre>
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Output: </dt>
+</dl>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Hello</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">world</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The number of cells in the first line will dictate how many colmuns the table will have:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Example: </dt>
+</dl>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-adoc" data-lang="adoc"><code>|===</code>
+<code>| Fruit | Veg | Nuts</code>
+<code>|</code> peaches
+<code>|</code> broccoli <code>|</code> pecan <code>|</code> apples <code>|</code> beetroot <code>|</code> cashew
+<code>|===</code></code></pre>
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Output: </dt>
+</dl>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Fruit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Veg</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Nuts</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">peaches</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">broccoli</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pecan</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">apples</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">beetroot</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cashew</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Leaving an empty line after the first row will format that row as a header (centre-aligned and in bold).
+The table will inherit the number of columns defined in the header row.
+Empty lines after the header are ignored - <strong>new lines do not indicate a new row</strong>:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Example: </dt>
+</dl>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-adoc" data-lang="adoc"><code>|===</code>
+<code>| Backend | Description</code>
+
+<code>|</code> html (or html5) <code>|</code> HTML5, styled with CSS3 (default). <code>|</code> pdf
+
+<code>|</code> PDF, a portable document format.
+<code>|===</code></code></pre>
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Output: </dt>
+</dl>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Backend</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">html (or html5)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTML5, styled with CSS3 (default).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pdf</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PDF, a portable document format.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_table-attributes"><a class="anchor" href="/public/asciispec-cheatsheet.html#_table-attributes"></a>9.2. Table Attributes</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Attribute</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[options="footer"]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The last row of a table is styled as a footer</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[width=n]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Overall table width spans <code>n</code>% page width</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[frame=topbot]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No border is drawn on the left and right sides of the table.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[frame=sides]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No border is drawn on the top and bottom of the table.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[frame=none]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No border is drawn around the table.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[grid=rows]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No border is drawn between columns in the table.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[grid=cols]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No border is drawn between rown in the table.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[grid=none]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No borders are drawn between rows and columns in the table.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[caption="Table A. "]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A table with a title will be defined as a formal table and will be rendered with an enumerated caption. This attribute replaces <code>Table 1.</code> etc. with custom caption.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_spanning-rows-columns"><a class="anchor" href="/public/asciispec-cheatsheet.html#_spanning-rows-columns"></a>9.3. Spanning rows &amp; columns</h3>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Cell Prefixes: </dt>
+</dl>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Function</th>
+<th class="tableblock halign-center valign-middle">Syntax</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Duplicate</p></th>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><code>n*|</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Duplicate cell <code>n</code> times</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Horizontal span</p></th>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><code>n+|</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Cell spans <code>n</code> cells</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Vertical span</p></th>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><code>.n+|</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Cell spans <code>n</code> cells</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Example: </dt>
+</dl>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-adoc" data-lang="adoc"><code>|===</code>
+<code>4+|</code> Span four columns and style as a header
+
+<code>4*|</code> duplicate this cell
+<code>.2+|</code> Span two rows <code>3+|</code> Span three columns
+<code>3+|</code> Span three columns
+<code>|===</code></code></pre>
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Output: </dt>
+</dl>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top" colspan="4">Span four columns and style as a header</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">duplicate this cell</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">duplicate this cell</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">duplicate this cell</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">duplicate this cell</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock">Span two rows</p></td>
+<td class="tableblock halign-left valign-top" colspan="3"><p class="tableblock">Span three columns</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="3"><p class="tableblock">Span three columns</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_cell-content-alignment"><a class="anchor" href="/public/asciispec-cheatsheet.html#_cell-content-alignment"></a>9.4. Cell Content Alignment</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-middle">Type</th>
+<th class="tableblock halign-center valign-middle">Cell Prefix</th>
+<th class="tableblock halign-center valign-middle">Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Center Horizontally</p></th>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><code>^|</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Center Horizontally</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Align-left Horizontally</p></th>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><code>&lt;|</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Align-left Horizontally</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Align-right Horizontally</p></th>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><code>&gt;|</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">Align-right Horizontally</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Center<br>
+Content<br>
+Vertically</p></th>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><code>.^|</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Center</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Top<br>
+Align<br>
+Content</p></th>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><code>.&lt;|</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Align-top</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Bottom<br>
+Align<br>
+Content</p></th>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><code>.&gt;|</code></p></td>
+<td class="tableblock halign-left valign-bottom"><p class="tableblock">Align-bottom</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock">Combining<br>
+Cell<br>
+Shorthand</p></th>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><code>^.^h|</code></p></td>
+<th class="tableblock halign-center valign-middle"><p class="tableblock">Heading style, centre aligned.</p></th>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_column-styles"><a class="anchor" href="/public/asciispec-cheatsheet.html#_column-styles"></a>9.5. Column Styles</h3>
+<div class="paragraph">
+<p>Styles can be applied with shorthand before the <code>|</code> vertical bar that creates a cell as follows:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 15%;">
+<col style="width: 10%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Style</th>
+<th class="tableblock halign-center valign-middle">Value</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">AsciiDoc</p></th>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><code>a</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any block-level elements (paragraphs, delimited blocks and block macros) may be contained within the column. The elements will be processed and rendered.</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Emphasis</p></th>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><code>e</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Text is italicized</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Header</p></th>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><code>h</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Header styles are applied to the column</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Literal</p></th>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><code>l</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Column content is treated as if it were inside a literal block</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Monospaced</p></th>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><code>m</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Text is rendered in monospaced font</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">None (default style)</p></th>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><code>d</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Text is handled like a normal paragraph. Supports all markup (i.e., inline formatting, inline macros) that is permitted in a paragraph.</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Strong</p></th>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><code>s</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Text is bolded</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Verse</p></th>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><code>v</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Column content is treated as if it were inside a verse block</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>We can set default formatting of columns as in the block declaration <code>[cols="h,m,s,e"]</code>.
+This creates a table with four columns with the formatting of <code>header</code>, <code>monospace</code>, <code>strong</code>, and <code>emphasis</code> respectively.
+This formatting can be overridden in individial cells by indicating with shorthand before the cell below:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Example: </dt>
+</dl>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-adoc" data-lang="adoc"><code>[cols="h,m,s,e"]</code>
+|===
+<code>| heading | monospace | strong(bold) | emphasis(italic)</code>
+
+4+a|
+
+==== AsciiDoc
+Content formatted as AsciiDoc.
+
+* Including lists or other blocks
+** Like a quote block:
+[quote]
+Don't quote me on this, but...
+
+<code>| content | here | retains| formatting</code>
+|===</code></pre>
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Output: </dt>
+</dl>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">heading</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>monospace</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>strong(bold)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>emphasis(italic)</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="4"><div><div class="sect3">
+<h4 id="_asciidoc"><a class="anchor" href="/public/asciispec-cheatsheet.html#_asciidoc"></a>1. AsciiDoc</h4>
+<div class="paragraph">
+<p>Content in this cell will be formatted as AsciiDoc.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>We can include lists or other content.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Like a quote block:</p>
+<div class="quoteblock">
+<blockquote>
+Don’t quote me on this, but…​
+</blockquote>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">content</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>here</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>retains</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>formatting</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>A complete summary of the attributes and values that can be applied to tables is found in the <a href="http://asciidoctor.org/docs/user-manual/#summary-tables">tables summary</a> section of the User Manual.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+</div>
+</div>
+<div class="social">
+<ul class="fa-ul">
+<li><a href="https://github.numberfour.eu/NumberFour/datamodel/tree/master/"><i class="fa-li fa fa-github"></i>Datamodel Repository </a></li>
+</ul>
+</div>
+<script>
+// Toggle the table of contents
+$( "button#tocbutton" ).click(function() {
+  if ($("#tocbutton").css('right') == '25px') {
+    $( "#tocbutton" ).animate({right: '215px'},"slow");
+    $( "#toc.toc2" ).animate({right: '0'},"slow");
+}
+  else {
+    $( "#tocbutton" ).animate({right: '25px'},"slow");
+    $( "#toc.toc2" ).animate({right: '-13rem'},"slow");
+}
+});
+</script>
+<script>
+// Initialise mobile menu
+  $(function(){
+    $('#menu').slicknav();
+  });
+</script>
+<script type="text/javascript">
+// Create a back to top button
+$('body').prepend('<a href="#" class="back-to-top">Back to Top</a>');
+var amountScrolled = 300;
+$(window).scroll(function() {
+if ( $(window).scrollTop() > amountScrolled ) {
+	$('a.back-to-top').fadeIn('slow');
+} else {
+	$('a.back-to-top').fadeOut('slow');
+}
+});
+$('a.back-to-top, a.simple-back-to-top').click(function() {
+$('html, body').animate({
+	scrollTop: 0
+}, 700);
+return false;
+});
+</script>
+
+</body></html>
