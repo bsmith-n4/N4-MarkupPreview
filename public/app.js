@@ -128,6 +128,14 @@ $(function() {
           window.App.Context.timestamp = data.timestamp
           window.App.Context.revivable_key = data.revivable_key
 
+
+          // TODFO: find better solution for this.
+          if (hljs) {
+            $('#content pre code:not(.hljs)').each(function(i, block) {
+              hljs.highlightBlock(block);
+            });
+          }
+
           // dirty hack for auto scrolling if images exist
           var img$ = $('img')
           var doAutoScroll

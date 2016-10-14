@@ -3,18 +3,18 @@
   <head>
     <meta charset="utf-8">
     <title>{{filename}}—{{dirname}}</title>
-    <link rel="stylesheet" type="text/css" href="/public/n4.css">
+    <link rel="stylesheet" type="text/css" href="/public/styles/n4.css">
     <!-- ************* Favicon ************-->
-    <link rel="icon" href="public/favicon.ico" />
+    <link rel="icon" href="public/styles/favicon.ico" />
     <!-- ************* Back-to-top JQuery ************* -->
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
-    <script type="text/javascript" src="/public/nav-mobile.js"></script>
+    <script type="text/javascript" src="/public/scripts/nav-mobile.js"></script>
 
     <!-- ****************** NavBar ****************** -->
     <div id="menubar">
         <div class="banner">
-          <img src="/public/logo.png" alt="AsciiSpec LivePreview"></a>
+          <img src="/public/styles/logo.png" alt="AsciiSpec LivePreview"></a>
         </div>
     <ul class="fa-ul">
      <!-- <li><a href="/pages/numberfour/datamodel/index"></i>Docs Index</a></li> -->
@@ -54,7 +54,7 @@
 </div>
 <div class="social">
 <ul class="fa-ul">
-<li><a href="https://github.numberfour.eu/NumberFour/datamodel/tree/master/"><i class="fa-li fa fa-github"></i>N4JS Repository </a></li>
+<!--<li><a href="https://github.numberfour.eu/NumberFour/datamodel/tree/master/"><i class="fa-li fa fa-github"></i>N4JS Repository</a></li> -->
 </ul>
 </div>
 <script>
@@ -96,7 +96,7 @@ return false;
 </script>
 </script>
 <link rel="stylesheet" href="/public/styles/n4jshighlighter.min.css">
-<script src="/public/highlight.min.js"></script>
+<script src="/public/scripts/highlight.min.js"></script>
 <script>hljs.initHighlighting()</script>
   </body>
   <script type="text/x-omnimarkup-config">
@@ -110,8 +110,8 @@ return false;
       mathjax_enabled: {{'true' if mathjax_enabled else 'false'}}
     };
   </script>
-  <script type="text/javascript" src="/public/jquery-2.1.3.min.js"></script>
-  <script type="text/javascript" src="/public/imagesloaded.pkgd.min.js"></script>
+  <script type="text/javascript" src="/public/scripts/jquery-2.1.3.min.js"></script>
+  <script type="text/javascript" src="/public/scripts/imagesloaded.pkgd.min.js"></script>
 
   <script type="text/javascript" src="/public/app.js"></script>
   %if mathjax_enabled:
