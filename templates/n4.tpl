@@ -48,42 +48,7 @@
         </article>
       </div>
     </div>
-  </body>
-  <script type="text/x-omnimarkup-config">
-    window.App.Context = {
-      buffer_id: {{buffer_id}},
-      timestamp: '{{timestamp}}',
-      revivable_key: '{{revivable_key}}'
-    };
-    window.App.Options = {
-      ajax_polling_interval: {{ajax_polling_interval}},
-      mathjax_enabled: {{'true' if mathjax_enabled else 'false'}}
-    };
-  </script>
-  <script type="text/javascript" src="/public/jquery-2.1.3.min.js"></script>
-  <script type="text/javascript" src="/public/imagesloaded.pkgd.min.js"></script>
-
-  <script type="text/javascript" src="/public/app.js"></script>
-  %if mathjax_enabled:
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-          displayMath: [ ['$$', '$$'], ["\\[", "\\]"] ],
-          processEscapes: true
-        },
-        TeX: {
-          equationNumbers: {
-            autoNumber: 'AMS'
-          }
-        },
-        'HTML-CSS': {
-          imageFont: null
-        }
-      });
-  </script>
-  <script type="text/javascript" src="/public/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-  <div id="footer">
+      <div id="footer">
 <div id="footer-text">
 </div>
 </div>
@@ -133,5 +98,41 @@ return false;
 <link rel="stylesheet" href="/public/styles/n4jshighlighter.min.css">
 <script src="/public/highlight.min.js"></script>
 <script>hljs.initHighlighting()</script>
+  </body>
+  <script type="text/x-omnimarkup-config">
+    window.App.Context = {
+      buffer_id: {{buffer_id}},
+      timestamp: '{{timestamp}}',
+      revivable_key: '{{revivable_key}}'
+    };
+    window.App.Options = {
+      ajax_polling_interval: {{ajax_polling_interval}},
+      mathjax_enabled: {{'true' if mathjax_enabled else 'false'}}
+    };
+  </script>
+  <script type="text/javascript" src="/public/jquery-2.1.3.min.js"></script>
+  <script type="text/javascript" src="/public/imagesloaded.pkgd.min.js"></script>
+
+  <script type="text/javascript" src="/public/app.js"></script>
+  %if mathjax_enabled:
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          displayMath: [ ['$$', '$$'], ["\\[", "\\]"] ],
+          processEscapes: true
+        },
+        TeX: {
+          equationNumbers: {
+            autoNumber: 'AMS'
+          }
+        },
+        'HTML-CSS': {
+          imageFont: null
+        }
+      });
+  </script>
+  <script type="text/javascript" src="/public/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
   %end
 </html>
