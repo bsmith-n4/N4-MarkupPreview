@@ -5,7 +5,7 @@
     <title>{{filename}}—{{dirname}}</title>
     <link rel="stylesheet" type="text/css" href="/public/n4.css">
     <!-- ************* Favicon ************-->
-    <link rel="icon" href="https://www.numberfour.eu/favicon.ico" />
+    <link rel="icon" href="public/favicon.ico" />
     <!-- ************* Back-to-top JQuery ************* -->
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
@@ -129,5 +129,9 @@ $('html, body').animate({
 return false;
 });
 </script>
+</script>
+<link rel="stylesheet" href="/public/styles/n4jshighlighter.min.css">
+<script src="/public/highlight.min.js"></script>
+<script>hljs.initHighlighting()</script>
   %end
 </html>
