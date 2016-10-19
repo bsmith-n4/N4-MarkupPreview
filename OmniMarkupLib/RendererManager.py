@@ -263,7 +263,7 @@ class RendererManager(object):
         for renderer_classname, renderer in cls.RENDERERS:
             try:
                 if renderer.is_enabled(filename, lang):
-                    rendered_text = renderer.render(text, filename=filename)
+                    rendered_text = renderer.render(text, filename=filename, fullpath=fullpath)
                     return post_process_func(rendered_text, fullpath)
             except:
                 log.exception('Exception occured while rendering using %s', renderer_classname)

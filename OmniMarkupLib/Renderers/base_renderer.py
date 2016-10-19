@@ -74,7 +74,7 @@ class CommandlineRenderer(MarkupRenderer):
     def render(self, text, **kwargs):
         text = self.pre_process_encoding(text, **kwargs)
         text = self.pre_process(text, **kwargs)
-        text = self.executable_check(text, kwargs['filename'])
+        text = self.executable_check(text, kwargs['fullpath'])
         text = self.post_process_encoding(text, **kwargs)
         return self.post_process(text, **kwargs)
 
@@ -92,7 +92,7 @@ class CommandlineRenderer(MarkupRenderer):
                 tempfile_.write(text)
                 tempfile_.flush()
 
-                args.extend(self.get_args(filename=tempfile_.name()))
+                args.extend(self.get_args(filename=tempfile_.name))
                 text = None
             elif self.input_method == InputMethod.FILE:
                 args.extend(self.get_args(filename=filename))
@@ -100,6 +100,7 @@ class CommandlineRenderer(MarkupRenderer):
             else:
                 return u''
 
+            print(args)
             proc = subprocess.Popen(args, stdin=subprocess.PIPE,
                                     stdout=subprocess.PIPE,
                                     stderr=subprocess.PIPE,
