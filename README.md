@@ -1,10 +1,10 @@
-#### Quick Setup:
+### Quick Setup:
 
 The **Asciidoctor** RubyGem is a prerequisite for ```.adoc``` files:
 
 ```gem install asciidoctor```
 
-#### Installing OmniMarkupPreviewer through [Package Control]
+### Installing OmniMarkupPreviewer through [Package Control]
 
 [Package Control]: http://wbond.net/sublime_packages/package_control
 
