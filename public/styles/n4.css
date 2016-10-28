@@ -1302,3 +1302,12 @@ body.toc2.toc-right a:hover.back-to-top {
 .bibliography .content .paragraph {
   padding-left: 6em;
   text-indent: -6em;
+  
+/* ========================================================================== Custom Para Styles ======================================================================= */
+
+  
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
