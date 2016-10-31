@@ -355,7 +355,7 @@ h1, h2, h3, #toctitle, .sidebarblock > .content > .title, h4, h5, h6 { line-heig
 .clearfix:before, .clearfix:after, .float-group:before, .float-group:after { content: " "; display: table; }
 .clearfix:after, .float-group:after { clear: both; }
 
-*:not(pre) > code { font-size: inherit; font-style: normal !important; letter-spacing: 0; padding: 0; line-height: inherit; }
+*:not(pre) > code { font-size: inherit; font-style: normal !important; letter-spacing: 0; padding: 0; line-height: inherit; overflow-wrap: break-word}
 
 pre, pre > code { line-height: 1.4; color: black; font-family: monospace, serif; font-weight: normal; }
 
