@@ -1271,30 +1271,52 @@ body.toc2.toc-right a:hover.back-to-top {
   background: url("yellowbars.png") no-repeat center 50%;
   left: 98%;
   z-index: 100000;
+  }
 }
+
 @media only screen and (max-width: 1434px) {
   body.toc2.toc-right #tocbutton {
   visibility: hidden;
+  }
 }
-
-@media only screen and (min-width: ) 
-
 
 @media only screen and (max-width: 1462px) {
   a.back-to-top {
   left: 90%;
+  }
 }
 
 
-
-
 /* ========================================================================== AsciiSpec ======================================================================= */
-.requirement {
+
+ /* Requirement Block */
+.req::before {
+  content: "Requirement [" attr(id) "] ";
+}
+
+.req {
   border: 1px solid #aaaaaa;
   padding: 0.5em;
   margin-bottom: 1rem;
 }
 
+ /* Definition Block */
+.def {
+  background-color: aliceblue;
+  border-radius: 10px;
+  padding: 0.5rem;
+/*  
+  border: burlywood;
+  border-style: dotted;
+  border-width: 1px; 
+                    */
+}
+
+.def::before {
+    content: "Definition [" attr(id) "] ";
+}
+
+ /* Bibliography */
 .bibliography .content .paragraph p :first-child::before { 
   color:#777777;
   content: "[" attr(id) "] "; }
@@ -1302,4 +1324,4 @@ body.toc2.toc-right a:hover.back-to-top {
 .bibliography .content .paragraph {
   padding-left: 6em;
   text-indent: -6em;
- 
+ }
