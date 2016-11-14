@@ -886,10 +886,6 @@ div#remarks.ulist {
   max-width: 70%;
 }
 
-div.title:first-of-type {
-    display: none;
-}
-
 /* Mobile */
 
 @media only screen and (max-width: 800px) {
