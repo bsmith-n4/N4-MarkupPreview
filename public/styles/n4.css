@@ -139,7 +139,7 @@ meta.foundation-mq-large { font-family: "only screen and (min-width:1440px)"; wi
 
 html, body {  background-color:#527AA3; }
 
-body {  background: white; color: #222222;   padding: ; margin: 0; font-family: ITC Officina Serif W01, sans-serif, Helvetica Neue, Helvetica, Arial, sans-serif; font-weight: 400; font-style: normal; position: relative; cursor: auto; padding-left: 2rem; padding-right: 2rem;}
+body {  background: white; color: #222222; margin: 0; font-family: ITC Officina Serif W01, sans-serif, Helvetica Neue, Helvetica, Arial, sans-serif; font-weight: 400; font-style: normal; position: relative; cursor: auto; padding-left: 2rem; padding-right: 2rem;}
 
 
 a:hover { cursor: pointer; }
@@ -215,11 +215,11 @@ a img { border: none; }
 /* Default paragraph styles */
 p { font-family: ITC Officina Sans W01, sans-serif; font-weight: 500; font-size: 1.2rem; line-height: 1.4; padding-bottom: 0.5em;    }
 p aside { font-size: 0.575em; line-height: 1.35; font-style: italic; }
-div.p, { width: 100% }
+div.p { width: 100% }
 
 
 /* Default header styles */
-h1, h2, h3, #toctitle, .sidebarblock > .content > .title, h4, h5, h6 { font-family: ITC Officina Serif W01, sans-serif, Georgia, Verdana, "Helvetica", Helvetica, Arial, sans-serif; font-weight: normal; font-style: normal; color: #244d82; text-rendering: optimizeLegibility; margin-bottom: 0em; line-height: 1.2125em; margin-top:; 2rem;  }
+h1, h2, h3, #toctitle, .sidebarblock > .content > .title, h4, h5, h6 { font-family: ITC Officina Serif W01, sans-serif, Georgia, Verdana, "Helvetica", Helvetica, Arial, sans-serif; font-weight: normal; font-style: normal; color: #244d82; text-rendering: optimizeLegibility; margin-bottom: 0em; line-height: 1.2125em; margin-top: 2rem;  }
 h1 small, h2 small, h3 small, #toctitle small, .sidebarblock > .content > .title small, h4 small, h5 small, h6 small { font-size: 60%; color: #6999d6; line-height: 0; }
 
 h1 { font-size: 2.125em; max-width:66.66%;}
@@ -273,7 +273,7 @@ abbr { text-transform: none; }
 
 /* Blockquotes */
 blockquote { margin: 0 0 1.25em; padding: 0.5625em 1.25em 0 1.1875em; border-left: 1px solid #dddddd; }
-blockquote cite { display: block; font-size: inherit; color: color: #132445; }
+blockquote cite { display: block; font-size: inherit; color: #132445; }
 blockquote cite:before { content: "\2014 \0020"; }
 blockquote cite a, blockquote cite a:visited { color: #417dcb; }
 
@@ -525,7 +525,7 @@ div#features-nav li:before {
 
 #footer {  background-color: rgb(15,26,54); padding: 1.25em; padding-bottom: 0rem; margin-right: -2rem; margin-left: -2rem; margin-top: 2rem; color: white}
 div.social  { background-color: rgb(15,26,54); padding: 1.25em; padding-top: 0rem; margin-right: -2rem; margin-left: -2rem; text-align: left;/* -webkit-flex-basis: 100%; -ms-flex-preferred-size: 100%; flex-basis: 100%; */  }
-div.social > ul li {color: white; line-height: 1.44; font-size: 1.2em; font-weight: 800; font-style: bold position: relative; list-style: none; list-style-type: none; display: inline; text-decoration: none; }
+div.social > ul li {color: white; line-height: 1.44; font-size: 1.2em; font-weight: 800; font-style: bold; position: relative; list-style: none; list-style-type: none; display: inline; text-decoration: none; }
 div.social > ul a:visited { color: #244D82; }
 div.social > ul a:hover { color: #F7D425; } 
 
@@ -575,22 +575,18 @@ table.tableblock #preamble > .sectionbody > .paragraph:first-of-type p { font-si
 .exampleblock > .content > :first-child { margin-top: 0; }
 .exampleblock > .content > :last-child { margin-bottom: 0; }
 
-.sidebarblock { position: absolute; border-style: solid; border-width: 1px; border-color: #d9d9d9; margin: -2rem -7.5rem 0rem 63.65rem; padding: .2rem; background: #f2f2f2; -webkit-border-radius: 0; border-radius: 0; text-align: left; width: 5.5rem;}
+.sidebarblock { position: absolute; border-style: solid; border-width: 1px; border-color: #d9d9d9; right:-12.2%; padding: .2rem; background: #f2f2f2; -webkit-border-radius: 0; border-radius: 0; text-align: left; width: 5.5rem;}
 .sidebarblock > :first-child { margin-top: 0; }
 .sidebarblock > :last-child { margin-bottom: 0; }
 .sidebarblock > .content > .title { color: #6999d6; margin-top: 0; }
 
-@media only screen and (max-width: 1203px) { 
-.sidebarblock { position: absolute; right: 12%; }
-}
-@media only screen and (max-width: 817px) { 
-.sidebarblock { position: absolute; right: 18%; }
+@media only screen and (max-width: 1220px) { 
+.sidebarblock { position: absolute; right: -7%; }
 }
 
-@media only screen and (max-width: 562px) { 
-.sidebarblock { position: absolute; right: 25%; }
+@media only screen and (max-width: 1122px) { 
+.sidebarblock { position: absolute; right: -3%; }
 }
-
 .exampleblock > .content > :last-child > :last-child, .exampleblock > .content .olist > ol > li:last-child > :last-child, .exampleblock > .content .ulist > ul > li:last-child > :last-child, .exampleblock > .content .qlist > ol > li:last-child > :last-child, .sidebarblock > .content > :last-child > :last-child, .sidebarblock > .content .olist > ol > li:last-child > :last-child, .sidebarblock > .content .ulist > ul > li:last-child > :last-child, .sidebarblock > .content .qlist > ol > li:last-child > :last-child { margin-bottom: 0; }
 
 .literalblock pre, .listingblock pre:not(.highlight), .listingblock pre[class="highlight"], .listingblock pre[class^="highlight "], .listingblock pre.CodeRay, .listingblock pre.prettyprint { background: #eeeeee; }
@@ -604,7 +600,7 @@ table.tableblock #preamble > .sectionbody > .paragraph:first-of-type p { font-si
 .literalblock.output pre { color: #eeeeee; background-color: black; }
 
 .listingblock pre.highlightjs { padding: 0;  margin-right: 0em; }
-.listingblock pre.highlightjs > code { padding: 0.8em 2rem 0.65em 0.8em; -webkit-border-radius: 0; border-radius: 0; padding-right: 2rem;}
+.listingblock pre.highlightjs > code { -webkit-border-radius: 0; border-radius: 0; padding-right: 2rem;}
 
 .listingblock > .content { position: relative; }
 
@@ -788,7 +784,15 @@ div.unbreakable { page-break-inside: avoid; }
 
 .big { font-size: larger; }
 
-.small { font-size: smaller; }
+.small { font-size: small; }
+
+.x-small { font-size: x-small; }
+
+.xx-small { font-size: xx-small; }
+
+.x-large { font-size: x-large; }
+
+.xx-large { font-size: xx-large; }
 
 .underline { text-decoration: underline; }
 
@@ -990,12 +994,13 @@ div.slicknav_menu li:last-of-type
   max-height: 1rem;  
   max-width: 50%;
   vertical-align: middle;
+}
 
-  @media (max-width: 800px) {
-    flex-basis: 66.666%%;
+@media (max-width: 800px) {
+  .banner {
+    flex-basis: 66.66%; 
     max-width: 25%;
     margin: 1rem;
-
   }
 }
 
@@ -1020,7 +1025,7 @@ div.slicknav_menu li:last-of-type
     margin: 0.2rem;
     position: relative;
     z-index: 10000;
-    flex-basis: 66.666%%;
+    flex-basis: 66.666%;
     font-weight: 700;
 
 }
@@ -1291,26 +1296,29 @@ body.toc2.toc-right a:hover.back-to-top {
 }
 
 .req {
-  border: 1px solid #aaaaaa;
-  padding: 0.5em;
-  margin-bottom: 1rem;
+    border: 1px solid #aaaaaa;
+    padding: 0.5em;
+    margin-bottom: 1rem;
+    background-color: gainsboro;
+    border-radius: 10px;
+    padding: 1rem;
 }
 
- /* Definition Block */
-.def {
-  background-color: aliceblue;
-  border-radius: 10px;
-  padding: 0.5rem;
-/*  
-  border: burlywood;
-  border-style: dotted;
-  border-width: 1px; 
-                    */
-}
-
+/* Definition Block */
 .def::before {
     content: "Definition [" attr(id) "] ";
 }
+
+.def {
+    border: 1px solid #aaaaaa;
+    padding: 0.5em;
+    margin-bottom: 1rem;
+    background-color: aliceblue;
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+
 
  /* Bibliography */
 .bibliography .content .paragraph p :first-child::before { 
