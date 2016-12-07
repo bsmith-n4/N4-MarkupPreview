@@ -1329,3 +1329,12 @@ body.toc2.toc-right a:hover.back-to-top {
   padding-left: 6em;
   text-indent: -6em;
  }
+
+/* ToDos - Temporary Fix */
+.todo {
+    color: crimson;
+}
+
+.todo::before {
+	content: "TODO";
+}
