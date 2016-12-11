@@ -51,7 +51,7 @@ hr { -moz-box-sizing: content-box; box-sizing: content-box; height: 0; }
 mark { background: #ff0; color: #000; }
 
 /** Correct font family set oddly in Safari 5 and Chrome. */
-code, kbd, pre, samp { font-family: Fira Mono, monospace, serif; font-size: 1em; }
+kbd, samp { font-family: Fira Mono, monospace, serif; font-size: 1em; }
 
 /** Improve readability of pre-formatted text in all browsers. */
 pre { white-space: pre-wrap; }
@@ -243,7 +243,6 @@ strong, b { font-weight: 600; line-height: inherit; }
 
 small { font-size: 60%; line-height: inherit; }
 
-code { font-family: Fira Mono, Consolas, "Liberation Mono", Courier, monospace; font-weight: bold; color: #7f0a0c; }
 
 /* Lists */
 ul, ol, dl {  list-style-position: outside; font-family: ITC Officina Sans W01, sans-serif; padding-left: 0rem; list-style-type: disc;}
@@ -604,8 +603,9 @@ table.tableblock #preamble > .sectionbody > .paragraph:first-of-type p { font-si
 
 .listingblock > .content { position: relative; }
 
+/* Disable language display while using prism
 .listingblock code[data-lang]:before { display: none; content: attr(data-lang); position: absolute; font-size: 0.75em; top: 0.425rem; right: 0.5rem; line-height: 1; text-transform: uppercase; color: #999; padding-right: 2rem; }
-
+*/
 .listingblock:hover code[data-lang]:before { display: block; }
 
 .listingblock.terminal pre .command:before { content: attr(data-prompt); padding-right: 0.5em; color: #999; }

@@ -3,9 +3,13 @@
   <head>
     <meta charset="utf-8">
     <title>{{filename}}—{{dirname}}</title>
+    <script src="/public/scripts/prism.js"></script>
+    <link href="/public/scripts/prism.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="/public/styles/n4.css">
+    
     <!-- ************* Favicon ************-->
-    <link rel="icon" href="public/styles/favicon.ico" />
+    <link rel="icon" href="/public/styles/favicon.ico" />
+    
     <!-- ************* Back-to-top JQuery ************* -->
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
@@ -30,7 +34,6 @@
     <!-- ****************** Mobile NavBar ****************** -->
     <div class="mobile-navbar">
     <ul id="menu">
- <!--     <li><a class="scroll" href="/pages/numberfour/datamodel/index">Docs Index</a></li> -->
       <li><a class="scroll">AsciiDoc</a>
           <ul>
             <li><a href="/public/asciidoc-cheatsheet.html"></i>Syntax Cheat Sheet</a></li>
@@ -48,9 +51,9 @@
         </article>
       </div>
     </div>
-      <div id="footer">
-<div id="footer-text">
-</div>
+    <div id="footer">
+  <div id="footer-text">
+  </div>
 </div>
 <div class="social">
 <ul class="fa-ul">
@@ -74,6 +77,7 @@ $( "button#tocbutton" ).click(function() {
 // Initialise mobile menu
   $(function(){
     $('#menu').slicknav();
+
   });
 </script>
 <script type="text/javascript">
@@ -95,9 +99,6 @@ return false;
 });
 </script>
 </script>
-<link rel="stylesheet" href="/public/styles/n4jshighlighter.min.css">
-<script src="/public/scripts/highlight.min.js"></script>
-<script>hljs.initHighlighting()</script>
   </body>
   <script type="text/x-omnimarkup-config">
     window.App.Context = {
@@ -112,7 +113,6 @@ return false;
   </script>
   <script type="text/javascript" src="/public/scripts/jquery-2.1.3.min.js"></script>
   <script type="text/javascript" src="/public/scripts/imagesloaded.pkgd.min.js"></script>
-
   <script type="text/javascript" src="/public/app.js"></script>
   %if mathjax_enabled:
   <script type="text/x-mathjax-config">
@@ -133,6 +133,5 @@ return false;
       });
   </script>
   <script type="text/javascript" src="/public/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
   %end
 </html>
