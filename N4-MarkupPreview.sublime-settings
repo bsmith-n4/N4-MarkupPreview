@@ -1,4 +1,4 @@
-/* OmniMarkupPreviewer default setting, DO NOT MODIFY */
+/* N4-MarkupPreview default setting, DO NOT MODIFY */
 {
     "server_host": "127.0.0.1",
     "server_port": 51004,
@@ -14,9 +14,9 @@
     "browser_command": [],
 
     // User public static files should be placed into
-    //   ${packages}/User/OmniMarkupPreviewer/public/
+    //   ${packages}/User/N4-MarkupPreview/public/
     // User templates should be placed into:
-    //   ${packages}/User/OmniMarkupPreviewer/templates/
+    //   ${packages}/User/N4-MarkupPreview/templates/
     // Requires browser reload
     // Built-in templates: github, github-v1
     "html_template_name": "n4",
@@ -34,7 +34,7 @@
 
     // Enable MathJax (http://www.mathjax.org/)
     // MathJax javascript libraries will downloaded automatically, it may take some while.
-    // When MathJax is properly installed into OmniMarkupPreviewer/public/mathjax, you
+    // When MathJax is properly installed into N4-MarkupPreview/public/mathjax, you
     //   have to reload your browser to get mathjax work.
     // KNOWN ISSUES:
     //   * It may be slow base on your computer/browser performance, so you may want to

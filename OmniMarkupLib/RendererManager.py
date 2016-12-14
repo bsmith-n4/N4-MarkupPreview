@@ -392,7 +392,7 @@ class RendererManager(object):
     def _load_renderer(cls, renderers, path, name):
         prefix = 'OmniMarkupLib.Renderers'
         if PY3K:
-            prefix = 'OmniMarkupPreviewer.' + prefix
+            prefix = 'N4-MarkupPreview.' + prefix
 
         try:
             mod = cls._import_module(name, path, prefix)

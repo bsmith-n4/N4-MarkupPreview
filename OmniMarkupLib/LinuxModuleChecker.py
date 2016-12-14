@@ -26,7 +26,7 @@ import sys
 
 
 def cannot_import_some_modules_in_linux():
-    if not sublime.ok_cancel_dialog("OmniMarkupPreviewer cannot work "
+    if not sublime.ok_cancel_dialog("N4-MarkupPreview cannot work "
                                     "because some modules is missing from Sublime Text 2 Linux version.\n"
                                     "Click \"OK\" to see how to fix it"):
         return
@@ -59,13 +59,13 @@ ln -s "$HOME/.pythonbrew/pythons/Python-2.6/lib/python2.6/" "${SUBLIME_TEXT2_FOL
 
 def check(force_check=False):
     if os.name == 'posix':  # For Linux only
-        settings = sublime.load_settings('OmniMarkupPreviewer.sublime-settings')
+        settings = sublime.load_settings('N4-MarkupPreview.sublime-settings')
         reported = settings.get('missing_module_reported', False)
         if reported and not force_check:
             # Check only once
             return
         settings.set('missing_module_reported', True)
-        sublime.save_settings('OmniMarkupPreviewer.sublime-settings')
+        sublime.save_settings('N4-MarkupPreview.sublime-settings')
         try:
             # Prevent PEP8 warning
             exec('import pyexpat')
