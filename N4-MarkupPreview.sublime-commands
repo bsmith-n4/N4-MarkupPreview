@@ -1,0 +1,30 @@
+[
+    {
+        "caption": "Preferences: N4-MarkupPreview Settings – Default",
+        "command": "open_file",
+        "args":
+        {
+            "file": "${packages}/N4-MarkupPreview/N4-MarkupPreview.sublime-settings"
+        }
+    },
+    {
+        "caption": "Preferences: N4-MarkupPreview Settings – User",
+        "command": "open_file",
+        "args":
+        {
+            "file": "${packages}/User/N4-MarkupPreview.sublime-settings"
+        }
+    },
+    {
+        "caption": "N4-MarkupPreview: Preview Current Markup in Browser",
+        "command": "omni_markup_preview"
+    },
+    {
+        "caption": "N4-MarkupPreview: Export Current Markup as HTML",
+        "command": "omni_markup_export"
+    },
+    {
+        "caption": "N4-MarkupPreview: Empty Cache",
+        "command": "omni_markup_clean_cache"
+    }
+]

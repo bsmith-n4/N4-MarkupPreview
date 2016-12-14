@@ -12,21 +12,21 @@
                 "children":
                 [
                     {
-                        "id": "OmniMarkupPreviewer",
+                        "id": "N4-MarkupPreview",
                         "caption": "N4-Markup Preview",
                         "children":
                         [
                             {
                                 "command": "open_file", "args":
                                 {
-                                    "file": "${packages}/N4-MarkupPreview/OmniMarkupPreviewer.sublime-settings"
+                                    "file": "${packages}/N4-MarkupPreview/N4-MarkupPreview.sublime-settings"
                                 },
                                 "caption": "Settings – Default"
                             },
                             {
                                 "command": "open_file", "args":
                                 {
-                                    "file": "${packages}/User/OmniMarkupPreviewer.sublime-settings"
+                                    "file": "${packages}/User/N4-MarkupPreview.sublime-settings"
                                 },
                                 "caption": "Settings – User"
                             },
