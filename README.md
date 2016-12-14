@@ -16,7 +16,7 @@ Once Package Control is installed, restart Sublime Text.
 1. Open the Command Palette (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>
    on Windows and Linux. <kbd>⌘</kbd>+<kbd>⇧</kbd>+<kbd>P</kbd> on OS X).
 2. Type "Add" and select "Add Repository".
-3. Paste the git URL https://github.com/bsmith-n4/N4-MarkupPreview.git into the form at the bottom of the window.
+3. Paste the repository URL https://github.com/bsmith-n4/N4-MarkupPreview into the form at the bottom of the window.
 4. Open the Command Palette, type "Install" and select "Package Control: Install Package".
 5. Type "N4" and select "N4-MarkupPreview" from list.
 
