@@ -24,7 +24,7 @@ Once Package Control is installed, restart Sublime Text.
 
 Clone this repo into your Sublime Text Packages directory:
 
-`git clone git://github.com/bsmith-n4/N4-MarkupPreview.git.git`
+`git clone git://github.com/bsmith-n4/N4-MarkupPreview.git`
 
 The 'Packages' directory for Sublime Text 3 is located at:
 
