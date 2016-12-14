@@ -1333,6 +1333,11 @@ body.toc2.toc-right a:hover.back-to-top {
 /* ToDos - Temporary Fix */
 .todo {
     color: crimson;
+    border: crimson;
+    border-width: 1px;
+    border-style: dashed;
+    border-radius: 15px;
+    padding: 12px;
 }
 
 .todo::before {
