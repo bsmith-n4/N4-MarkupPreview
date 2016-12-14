@@ -3,6 +3,7 @@ N4-MarkupPreview v3.0.1 Changelog:
 **NOTE:** Restarting Sublime Text may required after upgrading.
 
 * Added Prism.js, including support for inline syntax highlighting.
+* Renaming Package contents (N4-MarkupPreview)
 
 Forked from timonwong/OmniMarkupPreviewer:
 
