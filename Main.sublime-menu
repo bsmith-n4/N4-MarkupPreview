@@ -19,7 +19,7 @@
                             {
                                 "command": "open_file", "args":
                                 {
-                                    "file": "${packages}/OmniMarkupPreviewer/OmniMarkupPreviewer.sublime-settings"
+                                    "file": "${packages}/N4-MarkupPreview/OmniMarkupPreviewer.sublime-settings"
                                 },
                                 "caption": "Settings – Default"
                             },
@@ -34,7 +34,7 @@
                             {
                                 "command": "open_file", "args":
                                 {
-                                    "file": "${packages}/OmniMarkupPreviewer/Default (OSX).sublime-keymap",
+                                    "file": "${packages}/N4-MarkupPreview/Default (OSX).sublime-keymap",
                                     "platform": "OSX"
                                 },
                                 "caption": "Key Bindings – Default"
@@ -42,7 +42,7 @@
                             {
                                 "command": "open_file", "args":
                                 {
-                                    "file": "${packages}/OmniMarkupPreviewer/Default (Linux).sublime-keymap",
+                                    "file": "${packages}/N4-MarkupPreview/Default (Linux).sublime-keymap",
                                     "platform": "Linux"
                                 },
                                 "caption": "Key Bindings – Default"
@@ -50,7 +50,7 @@
                             {
                                 "command": "open_file",
                                 "args": {
-                                    "file": "${packages}/OmniMarkupPreviewer/Default (Windows).sublime-keymap",
+                                    "file": "${packages}/N4-MarkupPreview/Default (Windows).sublime-keymap",
                                     "platform": "Windows"
                                 },
                                 "caption": "Key Bindings – Default"
