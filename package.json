@@ -1,7 +1,7 @@
 {
-    "repo": "OmniMarkupPreviewer",
-    "name": "OmniMarkupPreviewer",
-    "description": "Live previewer/exporter for markup files (markdown, rst, creole, textile...).",
+    "repo": "N4-MarkupPreview",
+    "name": "N4-MarkupPreview",
+    "description": "Live previewer/exporter for markup files.",
     "author": "timonwong",
     "homepage": "http://timonwong.github.io/OmniMarkupPreviewer/",
     "details": "https://github.com/timonwong/OmniMarkupPreviewer",
