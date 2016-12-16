@@ -1343,3 +1343,17 @@ body.toc2.toc-right a:hover.back-to-top {
 .todo::before {
 	content: "TODO";
 }
+
+/* TBD / ON HOLD - Temporary Fix */
+.hold {
+    color: darkorange;
+    border: darkorange;
+    border-width: 1px;
+    border-style: dashed;
+    border-radius: 15px;
+    padding: 12px;
+}
+
+.hold::before {
+  content: "ON HOLD";
+}
