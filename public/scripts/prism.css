@@ -328,3 +328,5 @@ script[type='text/plain'].language-markup {
 	content: attr(data-prompt);
 }
 
+.punctuation + b { display: none; }
+
