@@ -1,0 +1,28 @@
+= N4-MarkupPreview
+:experimental: true
+
+For more information, see https://github.com/bsmith-n4/N4-MarkupPreview
+
+== Key Bindings
+
+The default key bindings:
+
+OSX::
+
+* kbd:[⌘+⌥+O]: Preview Markup in Browser.
+* kbd:[⌘+⌥+X]: Export Markup as HTML.
+* kbd:[Ctrl+Alt+C]: Copy Markup as HTML.
+
+Windows, Linux::
+
+* kbd:[Ctrl+Alt+O]: Preview Markup in Browser.
+* kbd:[Ctrl+Alt+X]: Export Markup as HTML.
+* kbd:[Ctrl+Alt+C]: Copy Markup as HTML.
+
+== Command Palette
+
+Available OmniMarkupPreviewer commands in the command palette:
+
+* `OmniMarkupPreviewer: Preview Current Markup in Browser`
+* `OmniMarkupPreviewer: Export Current Markup as HTML`
+* `OmniMarkupPreviewer: Empty Cache`
