@@ -5,7 +5,7 @@
     <title>{{filename}}—{{dirname}}</title>
     <script src="/public/scripts/prism.js"></script>
     <link href="/public/scripts/prism.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="/public/styles/foundation.css">
+    <link rel="stylesheet" type="text/css" href="/public/styles/n4.css">
     
     <!-- ************* Favicon ************-->
     <link rel="icon" href="/public/styles/favicon.ico" />
@@ -17,33 +17,29 @@
 
     <!-- ****************** NavBar ****************** -->
     <div id="menubar">
-      <div class="banner">
-        <img src="/public/styles/logo.png" alt="AsciiSpec LivePreview"></a>
-      </div>
-      <!-- 
-      <ul class="fa-ul">
-       <li><a href="/pages/numberfour/datamodel/index"></i>Docs Index</a></li> 
-        <li><a></i>AsciiDoc</a>
-            <ul>
-              <li><a href="/public/asciidoc-cheatsheet.html"></i>Syntax Cheat Sheet</a></li>
-              <li><a href="/public/asciispec-cheatsheet.html"></i>Custom AsciiSpec Macros</a></li>
-          </ul>
-        </li>
-      </ul>
-      -->
+        <div class="banner">
+          <img src="/public/styles/logo.png" alt="AsciiSpec LivePreview"></a>
+        </div>
+    <ul class="fa-ul">
+     <!-- <li><a href="/pages/numberfour/datamodel/index"></i>Docs Index</a></li> -->
+      <li><a></i>AsciiDoc</a>
+          <ul>
+            <li><a href="/public/asciidoc-cheatsheet.html"></i>Syntax Cheat Sheet</a></li>
+            <li><a href="/public/asciispec-cheatsheet.html"></i>Custom AsciiSpec Macros</a></li>
+        </ul>
+      </li>
+    </ul>
     </div>
     <button id="tocbutton">TOC</button>
     <!-- ****************** Mobile NavBar ****************** -->
     <div class="mobile-navbar">
     <ul id="menu">
-    <!--
       <li><a class="scroll">AsciiDoc</a>
           <ul>
             <li><a href="/public/asciidoc-cheatsheet.html"></i>Syntax Cheat Sheet</a></li>
             <li><a href="/public/asciispec-cheatsheet.html"></i>Custom AsciiSpec Macros</a></li>
         </ul>
       </li>
-    -->
     </ul>
     </div>
   </head>
@@ -67,19 +63,13 @@
 <script>
 // Toggle the table of contents
 $( "button#tocbutton" ).click(function() {
-  if ($("#tocbutton").css('left') == '25px') {
-    $( "#tocbutton" ).animate({left: '215px'},"slow");
-    $( "#toc.toc2" ).animate({left: '0'},"slow");
-    $( "#menubar" ).animate({left: '215px'},"slow");
-    $( "#header, #content, #footnotes, #footer, .social" ).animate({left: '230px'},"slow");
-    $( "body.toc2").css("max-width", "80%");
+  if ($("#tocbutton").css('right') == '25px') {
+    $( "#tocbutton" ).animate({right: '215px'},"slow");
+    $( "#toc.toc2" ).animate({right: '0'},"slow");
 }
   else {
-    $( "#menubar" ).animate({left: '10px'},"slow");
-    $( "#tocbutton" ).animate({left: '25px'},"slow");
-    $( "#toc.toc2" ).animate({left: '-13rem'},"slow");
-    $( "#header, #content, #footnotes, #footer, .social" ).animate({left: '40px'},"slow");
-    $( "body.toc2").css("max-width", "90%");
+    $( "#tocbutton" ).animate({right: '25px'},"slow");
+    $( "#toc.toc2" ).animate({right: '-13rem'},"slow");
 }
 });
 </script>
