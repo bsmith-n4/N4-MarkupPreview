@@ -353,7 +353,7 @@ script[type='text/plain'].language-markup {
 
 .semi {
 	color: #696969;
-	font-weight: bold;
+	font-weight: normal;
 }
 
 .multilinecomment {
