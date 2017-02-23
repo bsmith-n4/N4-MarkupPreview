@@ -62,9 +62,9 @@ def init():
     global USER_TEMPLATE_FILES_DIR
 
     USER_STATIC_FILES_DIR = os.path.normpath(os.path.join(sublime.packages_path(),
-                                             'User', 'OmniMarkupPreviewer', 'public'))
+                                             'User', 'N4-MarkupPreview', 'public'))
     USER_TEMPLATE_FILES_DIR = os.path.normpath(os.path.join(sublime.packages_path(),
-                                               'User', 'OmniMarkupPreviewer', 'templates'))
+                                               'User', 'N4-MarkupPreview', 'templates'))
 
     def mk_folders(folders):
         for folder in folders:

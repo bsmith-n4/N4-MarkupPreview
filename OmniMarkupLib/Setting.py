@@ -57,7 +57,7 @@ class Setting(SettingEventSource):
             setattr(self, attr, typ(v))
 
     def load_setting(self):
-        PLUGIN_NAME = 'OmniMarkupPreviewer'
+        PLUGIN_NAME = 'N4-MarkupPreview'
         settings = sublime.load_settings(PLUGIN_NAME + '.sublime-settings')
         settings.clear_on_change(PLUGIN_NAME)
         settings.add_on_change(PLUGIN_NAME, self.sublime_settings_on_change)

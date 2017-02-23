@@ -1,10 +1,10 @@
-/* OmniMarkupPreviewer default setting, DO NOT MODIFY */
+/* N4-MarkupPreview default setting, DO NOT MODIFY */
 {
     "server_host": "127.0.0.1",
     "server_port": 51004,
     "refresh_on_modified": true,
     // delay after modified, in milliseconds
-    "refresh_on_modified_delay": 500,
+    "refresh_on_modified_delay": 300,
     "refresh_on_saved": true,
 
     // User defined command for launching preview in web browser
@@ -14,16 +14,16 @@
     "browser_command": [],
 
     // User public static files should be placed into
-    //   ${packages}/User/OmniMarkupPreviewer/public/
+    //   ${packages}/User/N4-MarkupPreview/public/
     // User templates should be placed into:
-    //   ${packages}/User/OmniMarkupPreviewer/templates/
+    //   ${packages}/User/N4-MarkupPreview/templates/
     // Requires browser reload
     // Built-in templates: github, github-v1
     "html_template_name": "n4",
 
     // Polling interval for content changes in web browsers, in milliseconds
     // Requires browser reload
-    "ajax_polling_interval": 500,
+    "ajax_polling_interval": 300,
 
     // list of renderers to be ignored, case sensitive.
     // Valid renderers are: "CreoleRenderer", "MarkdownRenderer", "PodRenderer",
@@ -34,13 +34,13 @@
 
     // Enable MathJax (http://www.mathjax.org/)
     // MathJax javascript libraries will downloaded automatically, it may take some while.
-    // When MathJax is properly installed into OmniMarkupPreviewer/public/mathjax, you
+    // When MathJax is properly installed into N4-MarkupPreview/public/mathjax, you
     //   have to reload your browser to get mathjax work.
     // KNOWN ISSUES:
     //   * It may be slow base on your computer/browser performance, so you may want to
     //     tune the following options:
     //         "ajax_polling_interval", "refresh_on_modified" and "refresh_on_modified_delay"
-    "mathjax_enabled": false,
+    "mathjax_enabled": true,
 
     // Custom options for exporting
     "export_options" : {

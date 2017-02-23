@@ -56,7 +56,7 @@ def json_minify(json, strip_space=True):
 
 
 import json
-s = json_minify(open('OmniMarkupPreviewer.sublime-settings').read())
+s = json_minify(open('N4-MarkupPreview.sublime-settings').read())
 json_obj = json.loads(s)
 default_settings_string = json.dumps(json_obj, indent=4, separators=(',', ': '))
 open('default_settings.json', 'w').write(default_settings_string)
