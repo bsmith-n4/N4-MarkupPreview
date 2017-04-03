@@ -4,8 +4,11 @@
     <meta charset="utf-8">
     <title>{{filename}}—{{dirname}}</title>
     <script src="/public/scripts/prism.js"></script>
-    <link href="/public/scripts/prism.css" rel="stylesheet" />
+    <link href="/public/styles/prism.min.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="/public/styles/foundation.css">
+
+    <!-- ************* Font Awesome Icons ********* -->
+    <link rel="stylesheet" href="/public/styles/font-awesome/css/font-awesome.min.css">
     
     <!-- ************* Favicon ************-->
     <link rel="icon" href="/public/styles/favicon.ico" />

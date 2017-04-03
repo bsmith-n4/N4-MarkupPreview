@@ -4,7 +4,7 @@
     "server_port": 51004,
     "refresh_on_modified": true,
     // delay after modified, in milliseconds
-    "refresh_on_modified_delay": 500,
+    "refresh_on_modified_delay": 300,
     "refresh_on_saved": true,
 
     // User defined command for launching preview in web browser
@@ -23,7 +23,7 @@
 
     // Polling interval for content changes in web browsers, in milliseconds
     // Requires browser reload
-    "ajax_polling_interval": 500,
+    "ajax_polling_interval": 300,
 
     // list of renderers to be ignored, case sensitive.
     // Valid renderers are: "CreoleRenderer", "MarkdownRenderer", "PodRenderer",
@@ -40,7 +40,7 @@
     //   * It may be slow base on your computer/browser performance, so you may want to
     //     tune the following options:
     //         "ajax_polling_interval", "refresh_on_modified" and "refresh_on_modified_delay"
-    "mathjax_enabled": false,
+    "mathjax_enabled": true,
 
     // Custom options for exporting
     "export_options" : {
