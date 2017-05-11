@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- N4.TPL -->
 <html>
   <head>
     <meta charset="utf-8">
@@ -23,36 +24,17 @@
       <div class="banner">
         <img src="/public/styles/logo.png" alt="AsciiSpec LivePreview"></a>
       </div>
-      <!-- 
-      <ul class="fa-ul">
-       <li><a href="/pages/numberfour/datamodel/index"></i>Docs Index</a></li> 
-        <li><a></i>AsciiDoc</a>
-            <ul>
-              <li><a href="/public/asciidoc-cheatsheet.html"></i>Syntax Cheat Sheet</a></li>
-              <li><a href="/public/asciispec-cheatsheet.html"></i>Custom AsciiSpec Macros</a></li>
-          </ul>
-        </li>
-      </ul>
-      -->
     </div>
     <button id="tocbutton">TOC</button>
     <!-- ****************** Mobile NavBar ****************** -->
     <div class="mobile-navbar">
     <ul id="menu">
-    <!--
-      <li><a class="scroll">AsciiDoc</a>
-          <ul>
-            <li><a href="/public/asciidoc-cheatsheet.html"></i>Syntax Cheat Sheet</a></li>
-            <li><a href="/public/asciispec-cheatsheet.html"></i>Custom AsciiSpec Macros</a></li>
-        </ul>
-      </li>
-    -->
     </ul>
     </div>
   </head>
   <body>
     <div class="container">
-      <div id="markup">
+      <div id="markup" class="language-n4js">
         <article id="content" class="markdown-body">
           {{!html_part}}
         </article>
