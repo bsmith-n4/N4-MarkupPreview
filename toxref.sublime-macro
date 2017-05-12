@@ -1,0 +1,35 @@
+[
+	{
+		"args": null,
+		"command": "cut"
+	},
+	{
+		"args":
+		{
+			"characters": "<"
+		},
+		"command": "insert"
+	},
+	{
+		"args":
+		{
+			"commands":
+			[
+				[
+					"insert_snippet",
+					{
+						"contents": "<$0>>"
+					}
+				],
+				[
+					"auto_complete"
+				]
+			]
+		},
+		"command": "asciidoc_run_commands"
+	},
+	{
+		"args": null,
+		"command": "paste"
+	}
+]

@@ -11,5 +11,8 @@
         "keys": ["ctrl+alt+c"], "command": "omni_markup_export",
         "args": { "clipboard_only": true },
         "context": [{"key": "omnimarkup_is_enabled", "operator": "equal", "operand": ""}]
-    }
+    },
+    { "keys": ["ctrl+p"], "command": "run_macro_file", "args": {"file": "res://Packages/N4-MarkupPreview/toxref.sublime-macro"} },
+    { "keys": ["ctrl+o"], "command": "run_macro_file", "args": {"file": "res://Packages/N4-MarkupPreview/tojumplist.sublime-macro"} },
+
 ]
