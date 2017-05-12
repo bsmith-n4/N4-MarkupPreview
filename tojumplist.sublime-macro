@@ -1,0 +1,159 @@
+[
+	{
+		"args": null,
+		"command": "cut"
+	},
+	{
+		"args":
+		{
+			"contents": "*$0*"
+		},
+		"command": "insert_snippet"
+	},
+	{
+		"args":
+		{
+			"replacement": " "
+		},
+		"command": "replace_following_character"
+	},
+	{
+		"args":
+		{
+			"characters": "<"
+		},
+		"command": "insert"
+	},
+	{
+		"args":
+		{
+			"commands":
+			[
+				[
+					"insert_snippet",
+					{
+						"contents": "<$0>>"
+					}
+				],
+				[
+					"auto_complete"
+				]
+			]
+		},
+		"command": "asciidoc_run_commands"
+	},
+	{
+		"args": null,
+		"command": "paste"
+	},
+	{
+		"args":
+		{
+			"by": "characters",
+			"forward": true
+		},
+		"command": "move"
+	},
+	{
+		"args":
+		{
+			"by": "characters",
+			"forward": true
+		},
+		"command": "move"
+	},
+	{
+		"args":
+		{
+			"contents": "${TM_CURRENT_LINE/^(\\s*([*.\\-]+)(\\s+)).*/\n$2$3/}"
+		},
+		"command": "insert_snippet"
+	},
+	{
+		"args":
+		{
+			"commands":
+			[
+				[
+					"run_macro_file",
+					{
+						"file": "res://Packages/Default/Delete Line.sublime-macro"
+					}
+				],
+				[
+					"insert",
+					{
+						"characters": "\n"
+					}
+				],
+				[
+					"move",
+					{
+						"by": "characters",
+						"forward": false
+					}
+				]
+			]
+		},
+		"command": "asciidoc_run_commands"
+	},
+	{
+		"args":
+		{
+			"characters": "\n"
+		},
+		"command": "insert"
+	},
+	{
+		"args":
+		{
+			"contents": "[$0]"
+		},
+		"command": "insert_snippet"
+	},
+	{
+		"args":
+		{
+			"contents": "[$0]"
+		},
+		"command": "insert_snippet"
+	},
+	{
+		"args": null,
+		"command": "paste"
+	},
+	{
+		"args":
+		{
+			"by": "characters",
+			"forward": true
+		},
+		"command": "move"
+	},
+	{
+		"args":
+		{
+			"by": "characters",
+			"forward": true
+		},
+		"command": "move"
+	},
+	{
+		"args":
+		{
+			"characters": "\n."
+		},
+		"command": "insert"
+	},
+	{
+		"args": null,
+		"command": "paste"
+	},
+	{
+		"args":
+		{
+			"characters": "\n"
+		},
+		"command": "insert"
+	}
+]
