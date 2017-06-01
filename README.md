@@ -1,3 +1,9 @@
+# N4 Markup Previewer
+
+[![Build Status](https://travis-ci.org/bsmith-n4/N4-MarkupPreview.svg?branch=master)](https://travis-ci.org/bsmith-n4/N4-MarkupPreview)
+
+A Sublime Text 3 package for rendering markdown in a browser - updates and serves HTML as you type!
+
 ### Quick Setup:
 
 The **Asciidoctor** RubyGem is a prerequisite for ```.adoc``` files:
@@ -62,3 +68,8 @@ The previewer has builtin support for the following markups:
 * [MediaWiki](http://www.mediawiki.org/) (Requires `ruby`, as well as gem `wikicloth`)
 * [AsciiDoc](http://www.methods.co.nz/asciidoc/) (Requires `ruby`, as well as gem `asciidoctor`)
 * Literate Haskell
+
+
+### Acknowledgement
+
+Based on [OmniMarkupPreviewer](https://github.com/timonwong/OmniMarkupPreviewer) by Timon Wong
