@@ -4,8 +4,8 @@ require_relative '../ext/todo/extension'
 
 # Register the TODO block processor
 Extensions.register do
-  block CustomAdmonitionBlock
-  docinfo_processor CustomAdmonitionBlockDocinfo
+  block TodoBlock
+  docinfo_processor TodoBlockDocinfo
 end
 
 # Force utf-8 encoding
