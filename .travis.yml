@@ -9,6 +9,6 @@ python:
   - "3.6"
 install: "pip install -r requirements-dev.txt"
 script: 
-  - pep8 OmniMarkupLib/Renderers/ext/*.py
+  - pep8 OmniMarkupLib/Renderers/ext
   - pep8 OmniMarkupLib/Renderers/AsciiDocRenderer.py
   - pep8 OmniMarkupLib/Renderers/base_renderer.py

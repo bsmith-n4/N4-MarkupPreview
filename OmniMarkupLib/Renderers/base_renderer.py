@@ -53,7 +53,8 @@ class InputMethod(object):
 
 
 class CommandlineRenderer(MarkupRenderer):
-    def __init__(self, input_method=InputMethod.STDIN, executable=None, args=[]):
+    def __init__(self, input_method=InputMethod.STDIN, executable=None,
+                 args=[]):
         super(CommandlineRenderer, self).__init__()
         self.input_method = input_method
         self.executable = executable
@@ -124,7 +125,8 @@ class CommandlineRenderer(MarkupRenderer):
         if not PY3K and os.name == 'nt':
             # [PY2K] On Windows, popen won't support unicode args
             encoding = locale.getpreferredencoding()
-            args = [arg if isinstance(arg, str) else arg.encode(encoding) for arg in self.args]
+            args = [arg if isinstance(arg, str) else arg.encode(encoding)
+                    for arg in self.args]
         else:
             args = self.args
         return [arg.format(filename=filename) for arg in args]
