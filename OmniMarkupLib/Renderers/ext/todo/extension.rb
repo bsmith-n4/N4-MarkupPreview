@@ -16,10 +16,10 @@ include Asciidoctor
 #   [TODO]
 #   Add autocomplete across all tabs
 #
-class CustomAdmonitionBlock < Extensions::BlockProcessor
+class TodoBlock < Extensions::BlockProcessor
   use_dsl
   named :TODO
-  on_contexts :example, :paragraph
+  on_contexts :example, :open, :paragraph
 
   def process parent, reader, attrs
     attrs['name'] = 'todo'
@@ -28,7 +28,7 @@ class CustomAdmonitionBlock < Extensions::BlockProcessor
   end
 end
 
-class CustomAdmonitionBlockDocinfo < Extensions::DocinfoProcessor
+class TodoBlockDocinfo < Extensions::DocinfoProcessor
   use_dsl
 
   def process doc

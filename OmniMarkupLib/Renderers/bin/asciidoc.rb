@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
 require 'asciidoctor'
 require_relative '../ext/todo/extension'
+require_relative '../ext/def/extension'
 
 # Register the TODO block processor
 Extensions.register do
-  block CustomAdmonitionBlock
-  docinfo_processor CustomAdmonitionBlockDocinfo
+  block TodoBlock
+  block DefBlock
+  docinfo_processor TodoBlockDocinfo
 end
 
 # Force utf-8 encoding
