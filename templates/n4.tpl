@@ -68,13 +68,6 @@ $( "button#tocbutton" ).click(function() {
 }
 });
 </script>
-<script>
-// Initialise mobile menu
-  $(function(){
-    $('#menu').slicknav();
-
-  });
-</script>
 <script type="text/javascript">
 // Create a back to top button
 $('body').prepend('<a href="#" class="back-to-top">Back to Top</a>');

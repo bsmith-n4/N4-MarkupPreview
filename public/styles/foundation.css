@@ -1261,10 +1261,6 @@ body.toc2.toc-right a:hover.back-to-top {
     margin-bottom: 15px;
 }
 
-.todo::before {
-	content: "TODO";
-}
-
 /* TBD / ON HOLD - Temporary Fix */
 .hold {
     color: darkorange;
