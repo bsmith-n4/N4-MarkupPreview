@@ -11,7 +11,7 @@ class AsciiDocRenderer(CommandlineRenderer):
     def __init__(self):
         super(AsciiDocRenderer, self).__init__(
             input_method=InputMethod.FILE,
-            executable='/Users/kristian.duske/Documents/asciispec/bin/asciispec',
+            executable='asciispec',
             args=["{filename}", "--out-file -"])
 
     @classmethod
