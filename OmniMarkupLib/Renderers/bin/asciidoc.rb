@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 require 'asciidoctor'
-require_relative '../ext/jekyll_aspec.rb'
+require 'jekyll_aspec'
 
 # Force utf-8 encoding
 begin
