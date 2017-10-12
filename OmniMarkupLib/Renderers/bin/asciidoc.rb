@@ -1,12 +1,6 @@
 # -*- coding: utf-8 -*-
 require 'asciidoctor'
-require_relative '../ext/todo/extension'
-
-# Register the TODO block processor
-Extensions.register do
-  block TodoBlock
-  docinfo_processor TodoBlockDocinfo
-end
+require_relative '../ext/jekyll_aspec.rb'
 
 # Force utf-8 encoding
 begin
