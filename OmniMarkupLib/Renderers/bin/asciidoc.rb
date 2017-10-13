@@ -10,4 +10,5 @@ rescue
 end
 
 text = $stdin.read
-$stdout.write Asciidoctor::Document.new(text).render
+options = {'icons'=>'font'}
+$stdout.write Asciidoctor::Document.new(text, attributes: options).render
