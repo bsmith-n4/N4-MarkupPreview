@@ -10,5 +10,5 @@ rescue
 end
 
 text = $stdin.read
-options = {'icons'=>'font'}
-$stdout.write Asciidoctor::Document.new(text, attributes: options).render
+options = {'icons'=>'font','skip-front-matter'=>'true'}
+$stdout.write Asciidoctor::Document.new(text, :safe => 'unsafe',attributes: options).render
