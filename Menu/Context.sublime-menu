@@ -1,7 +1,12 @@
 [
   {
     "caption": "Markup Preview",
-    "children": [
+    "children": [    
+      {
+        "caption": "Jekyll Template",
+        "command": "example"
+      },
+      {"caption": "-"},
       {
           "caption": "Preview File in Browser",
           "command": "omni_markup_preview"
@@ -14,15 +19,6 @@
           "caption": "Empty Cache",
           "command": "omni_markup_clean_cache"
       },
-      {
-        "caption": "Jekyll HTML Template",
-        "command": ""
-      },
-      {
-        "caption": "N4 HTML Template",
-        "command": ""
-      }
-
     ]
   }
 ]

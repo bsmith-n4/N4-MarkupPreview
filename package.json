@@ -1,7 +1,7 @@
 {
     "repo": "N4-MarkupPreview",
-    "name": "N4-MarkupPreview",
-    "description": "Custom N4 live previewer/exporter for markup files.",
+    "name": "N4 Markup Preview",
+    "description": "Live previewer/exporter for markup files.",
     "author": "timonwong",
     "details": "https://github.com/bsmith-n4/N4-MarkupPreview",
     "platforms": ["*"]
