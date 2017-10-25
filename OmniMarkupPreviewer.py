@@ -106,7 +106,7 @@ class DefaultCommand(sublime_plugin.ApplicationCommand):
     def run (self):
         setting = Setting.instance()
         setting.load_setting()
-        OmniMarkupPreviewCommand.instance()
+        ReloadNotify()
 
 class OmniMarkupPreviewCommand(sublime_plugin.TextCommand):
     def run(self, edit, immediate=True):
