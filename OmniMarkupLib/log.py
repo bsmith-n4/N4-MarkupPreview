@@ -27,7 +27,7 @@ import traceback
 import threading
 
 
-NAME = 'N4-MarkupPreview:'
+NAME = 'Markup Preview:'
 g_lock = threading.Lock()
 
 

@@ -229,6 +229,6 @@ class Server(object):
         self.runner.start()
 
     def stop(self):
-        log.info('Bottle server shuting down...')
+        log.info('Bottle server shutting down...')
         self.server.shutdown()
         self.runner.join()

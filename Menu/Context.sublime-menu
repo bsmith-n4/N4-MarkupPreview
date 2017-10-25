@@ -3,8 +3,12 @@
     "caption": "Markup Preview",
     "children": [    
       {
+        "caption": "Default Template",
+        "command": "default"
+      },
+      {
         "caption": "Jekyll Template",
-        "command": "example"
+        "command": "jekyll"
       },
       {"caption": "-"},
       {

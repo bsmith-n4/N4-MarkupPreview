@@ -91,12 +91,28 @@ def launching_web_browser_for_url(url, success_msg_default=None, success_msg_use
         else:
             log.exception('Error while launching default web browser')
 
+def ReloadNotify():
+    msg = 'HTML Template updated, please reload your browser'
+    sublime.status_message('%s' % (msg))
+    log.info('%s' % (msg))
+      
+class JekyllCommand(sublime_plugin.ApplicationCommand):
+    def run (self):
+        setting = Setting.instance()
+        setting.load_jekyll()
+        ReloadNotify()
+
+class DefaultCommand(sublime_plugin.ApplicationCommand):
+    def run (self):
+        setting = Setting.instance()
+        setting.load_setting()
+        OmniMarkupPreviewCommand.instance()
 
 class OmniMarkupPreviewCommand(sublime_plugin.TextCommand):
     def run(self, edit, immediate=True):
         # Whether RendererManager is finished loading?
         if not RendererManager.ensure_started():
-            sublime.status_message('N4-MarkupPreview have not yet started')
+            sublime.status_message('N4-MarkupPreview has not yet started')
             return
 
         buffer_id = self.view.buffer_id()
@@ -124,7 +140,6 @@ class OmniMarkupPreviewCommand(sublime_plugin.TextCommand):
     def is_enabled(self):
         return RendererManager.any_available_renderer_for_view(self.view)
 
-
 class OmniMarkupCleanCacheCommand(sublime_plugin.ApplicationCommand):
     def run(self):
         storage = RenderedMarkupCache.instance()
@@ -135,6 +150,7 @@ class OmniMarkupExportCommand(sublime_plugin.TextCommand):
     def copy_to_clipboard(self, html_content):
         sublime.set_clipboard(html_content)
         sublime.status_message('Exported result copied to clipboard')
+
 
     def write_to_file(self, html_content, setting):
         target_folder = setting.export_options.get('target_folder', '.')
