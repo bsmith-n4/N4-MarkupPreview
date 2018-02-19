@@ -2,6 +2,11 @@
 require 'asciidoctor'
 require_relative '../ext/todo/extension'
 
+# Pass some conversion attributes to asciidoctor
+configs = {
+  'icons' => 'font'
+}
+
 # Register the TODO block processor
 Extensions.register do
   block TodoBlock
@@ -10,10 +15,10 @@ end
 
 # Force utf-8 encoding
 begin
-    $stdin.set_encoding 'utf-8'
-    $stdout.set_encoding 'utf-8'
+  $stdin.set_encoding 'utf-8'
+  $stdout.set_encoding 'utf-8'
 rescue
 end
 
 text = $stdin.read
-$stdout.write Asciidoctor::Document.new(text).render
+$stdout.write Asciidoctor::Document.new(text, attributes: configs).render
