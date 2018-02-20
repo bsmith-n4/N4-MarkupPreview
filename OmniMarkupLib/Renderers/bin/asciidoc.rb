@@ -2,6 +2,8 @@
 require 'asciidoctor'
 require_relative '../ext/todo.rb'
 require_relative '../ext/docinfo.rb'
+require_relative '../ext/task.rb'
+require_relative '../ext/cwiki.rb'
 
 # Pass some conversion attributes to asciidoctor
 configs = {
