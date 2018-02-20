@@ -1,8 +1,15 @@
-RUBY_ENGINE == 'opal' ?
-  (require 'todo/extension') :
-  (require_relative 'todo/extension')
+require 'asciidoctor/extensions'
+include ::Asciidoctor
 
 Extensions.register do
-  block CustomAdmonitionBlock
-  docinfo_processor CustomAdmonitionBlockDocinfo
+  block do
+    named :TODO
+    on_contexts :open, :paragraph, :example, :listing, :sidebar, :pass
+
+    process do |parent, reader, attrs|
+      attrs['name'] = 'todo'
+      attrs['caption'] = 'Todo'
+      create_block parent, :admonition, reader.lines, attrs, content_model: :compound
+    end
+  end
 end

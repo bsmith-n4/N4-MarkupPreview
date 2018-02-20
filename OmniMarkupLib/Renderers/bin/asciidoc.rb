@@ -1,17 +1,20 @@
 # -*- coding: utf-8 -*-
 require 'asciidoctor'
-require_relative '../ext/todo/extension'
+require_relative '../ext/todo.rb'
+require_relative '../ext/docinfo.rb'
 
 # Pass some conversion attributes to asciidoctor
 configs = {
-  'icons' => 'font'
+  'icons' => 'font',
+	'toc' => 'left',
+	'toclevels' => '5',
+	'sectnumlevels' => '3',
+	'doctype' => 'book',
+	'sectnums' => 'sectanchors',
+	'linkattrs' => 'true',
+	'sectlinks' => 'true',
+	'find' => ''
 }
-
-# Register the TODO block processor
-Extensions.register do
-  block TodoBlock
-  docinfo_processor TodoBlockDocinfo
-end
 
 # Force utf-8 encoding
 begin
