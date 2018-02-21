@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 require 'asciidoctor'
 require_relative '../ext/todo.rb'
-require_relative '../ext/docinfo.rb'
+require_relative '../ext/scripts.rb'
 
 # Pass some conversion attributes to asciidoctor
 configs = {

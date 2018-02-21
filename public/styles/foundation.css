@@ -297,7 +297,7 @@ b.button:before { content: "["; padding: 0 3px 0 2px; }
 
 b.button:after { content: "]"; padding: 0 2px 0 3px; }
 
-#header, #content, #footnotes, #footer { max-width:1300px; margin-right: 80px; margin-top: 0; margin-bottom: 0; *zoom: 1; position: relative; padding-left: 0.9375em; padding-right: 0.9375em; left:40px; }
+#header, #content, #footnotes, #footer { max-width:1900px; margin-right: 80px; margin-top: 0; margin-bottom: 0; *zoom: 1; position: relative; padding-left: 0.9375em; padding-right: 0.9375em; left:40px; }
 
 @media only screen and (max-width: 1360px) {
 	#toc {width: 200px }
@@ -489,7 +489,7 @@ table.tableblock > caption.title { white-space: nowrap; overflow: visible; max-w
 
 table.tableblock #preamble > .sectionbody > .paragraph:first-of-type p { font-size: inherit; }
 
-.admonitionblock > table { border-collapse: separate; border: 0; background: none; width: 100%; }
+.admonitionblock > table { border-collapse: separate; border: 0; background: none; width: 100%; margin-bottom: 0;}
 .admonitionblock > table td.icon { text-align: center; width: 80px; }
 .admonitionblock > table td.icon img { max-width: none; }
 .admonitionblock > table td.icon .title { font-weight: bold; font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; text-transform: uppercase; }
@@ -810,14 +810,6 @@ div#remarks.ulist {
 }
 
 
-/* Mobile */
-
-@media only screen and (max-width: 800px) {
-	a#bottomright {visibility: hidden;}
-	.sectionbody.paragraph {max-width: 100%}
-	.paragraph.lead > p, #preamble > .sectionbody > .paragraph:first-of-type p { max-width: 100% }
-}
-
 #div.paragraph.faq-intro {
 	max-width: 66.66%
 }
@@ -874,15 +866,6 @@ li.slicknav_parent.slicknav_open  {
     color: white;
 }
 
-@media screen and (max-width: 890px) {
-    div.slicknav_menu {
-        display: block;
-        color: white
-    }
-    #mobile-banner {
-        display: block;
-    }
-}
 
 @media screen and (max-width: 470px) {
 div.slicknav_menu ul:first-of-type {
@@ -1249,18 +1232,6 @@ body.toc2.toc-right a:hover.back-to-top {
 	text-indent: -6em;
 }
 
-/* ToDos - Temporary Fix */
-.todo {
-    color: crimson;
-    border: crimson;
-    border-width: 2px;
-    border-style: dotted;
-    border-radius: 15px;
-    padding: 12px;
-    background-color: cornsilk;
-    margin-bottom: 15px;
-}
-
 /* TBD / ON HOLD - Temporary Fix */
 .hold {
     color: darkorange;
@@ -1275,4 +1246,8 @@ body.toc2.toc-right a:hover.back-to-top {
 
 .hold::before {
   content: "ON HOLD";
+}
+
+#toc {
+	max-width: 600px;
 }
