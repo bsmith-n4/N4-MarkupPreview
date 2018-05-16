@@ -1,12 +1,12 @@
 {
-    "html_template_name": "jekyll_aspec",
+    "html_template_name": "bootstrap",
     "browser_command": [],
     "refresh_on_saved": true,
     "server_host": "127.0.0.1",
-    "refresh_on_modified_delay": 300,
+    "refresh_on_modified_delay": 100,
     "refresh_on_modified": true,
     "server_port": 51004,
-    "ajax_polling_interval": 300,
+    "ajax_polling_interval": 100,
     "ignored_renderers": [
         "LiterateHaskellRenderer"
     ],

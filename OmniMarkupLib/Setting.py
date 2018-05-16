@@ -75,9 +75,9 @@ class Setting(SettingEventSource):
 
         self._fix_setting_type()
 
-    def load_jekyll(self):
+    def load_github(self):
         PLUGIN_NAME = 'N4-MarkupPreview'
-        settings = sublime.load_settings('jekyll.sublime-settings')
+        settings = sublime.load_settings('github.sublime-settings')
         settings.clear_on_change(PLUGIN_NAME)
         settings.add_on_change(PLUGIN_NAME, self.sublime_settings_on_change)
 

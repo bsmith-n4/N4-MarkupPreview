@@ -1,6 +1,6 @@
 [
     {
-        "caption": "Preferences: N4-MarkupPreview Settings – Default",
+        "caption": "Preferences: MarkupPreview Default Settings",
         "command": "open_file",
         "args":
         {
@@ -8,7 +8,7 @@
         }
     },
     {
-        "caption": "Preferences: N4-MarkupPreview Settings – User",
+        "caption": "Preferences: N4-MarkupPreview User Settings",
         "command": "open_file",
         "args":
         {
@@ -16,11 +16,11 @@
         }
     },
     {
-        "caption": "N4-MarkupPreview: Preview Current Markup in Browser",
+        "caption": "N4-MarkupPreview: Preview Markup in Browser",
         "command": "omni_markup_preview"
     },
     {
-        "caption": "N4-MarkupPreview: Export Current Markup as HTML",
+        "caption": "N4-MarkupPreview: Export Markup as HTML",
         "command": "omni_markup_export"
     },
     {

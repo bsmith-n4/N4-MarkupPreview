@@ -19,7 +19,7 @@
     //   ${packages}/User/N4-MarkupPreview/templates/
     // Requires browser reload
     // Built-in templates: github, github-v1
-    "html_template_name": "github",
+    "html_template_name": "bootstrap",
 
     // Polling interval for content changes in web browsers, in milliseconds
     // Requires browser reload

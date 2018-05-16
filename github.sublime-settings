@@ -1,4 +1,4 @@
-/* N4-MarkupPreview default setting, DO NOT MODIFY */
+/* Default settings, DO NOT MODIFY */
 {
     "server_host": "127.0.0.1",
     "server_port": 51004,
@@ -19,7 +19,7 @@
     //   ${packages}/User/N4-MarkupPreview/templates/
     // Requires browser reload
     // Built-in templates: github, github-v1
-    "html_template_name": "jekyll_aspec",
+    "html_template_name": "github",
 
     // Polling interval for content changes in web browsers, in milliseconds
     // Requires browser reload

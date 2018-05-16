@@ -1,13 +1,18 @@
 <!DOCTYPE html>
-<!-- jekyll_aspec.TPL -->
+<!-- bootstrap.TPL -->
 <html>
   <head>
     <meta charset="utf-8">
     <title>{{filename}}—{{dirname}}</title>
+    
     <script src="/public/scripts/prism.js"></script>
     <link href="/public/styles/prism.min.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="/public/styles/main.css">
+
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" type="text/css" href="/public/styles/default.css">
+    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
     <!-- ************* Font Awesome Icons ********* -->
     <link rel="stylesheet" href="/public/styles/font-awesome/css/font-awesome.min.css">
     
@@ -17,47 +22,27 @@
     <!-- ************* Back-to-top JQuery ************* -->
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
-    <script type="text/javascript" src="/public/scripts/nav-mobile.js"></script>
-
   </head>
 
 
   <nav class="navbar navbar-default navbar-static-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-          </button>
-          <a class="navbar-brand" href="https://github.com/bsmith-n4/N4-MarkupPreview">Markup Previewer</a>
-        </div>
-<!--         <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="https://github.com/bsmith-n4/N4-MarkupPreview">GitHub</a></li>
-          </ul>
-        </div> -->
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="https://github.com/bsmith-n4/N4-MarkupPreview">Markup Previewer</a>
       </div>
-    </nav>
+    </div>
+  </nav>
 
   <body>
-  <div class="container">
-
+    <div class="container">
       <div id="markup" class="language-n4js">
-        <article id="content" class="markdown-body">
-  
+        <article id="content" class="markdown-body"> 
           {{!html_part}}
         </article>
       </div>
     </div>
-    <div id="footer">
-  <div id="footer-text">
-  </div>
-</div>
-<div class="social">
-<ul class="fa-ul">
-</ul>
-</div>
-</script>
   </body>
+
   <script type="text/x-omnimarkup-config">
     window.App.Context = {
       buffer_id: {{buffer_id}},
