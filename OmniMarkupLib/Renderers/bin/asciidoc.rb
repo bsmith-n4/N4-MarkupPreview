@@ -1,4 +1,5 @@
 require 'asciidoctor'
+require 'aspec_rb'
 
 # Force utf-8 encoding
 begin
