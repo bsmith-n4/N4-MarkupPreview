@@ -1,6 +1,7 @@
 require 'asciidoctor'
 require 'aspec_rb'
 
+
 # Force utf-8 encoding
 begin
   $stdin.set_encoding 'utf-8'
