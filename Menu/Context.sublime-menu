@@ -1,0 +1,32 @@
+[
+  {
+    "caption": "Markup Preview",
+    "children": [    
+      {
+        "caption": "Bootstrap CSS",
+        "command": "default"
+      },
+      {
+        "caption": "Github CSS",
+        "command": "github"
+      },
+      {
+        "caption": "Asciidoctor CSS",
+        "command": "asciidoctor"
+      },
+      {"caption": "-"},
+      {
+          "caption": "Preview File in Browser",
+          "command": "omni_markup_preview"
+      },
+      {
+          "caption": "Export Current File as HTML",
+          "command": "omni_markup_export"
+      },
+      {
+          "caption": "Empty Cache",
+          "command": "omni_markup_clean_cache"
+      },
+    ]
+  }
+]

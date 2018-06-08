@@ -1,4 +1,4 @@
-/* N4-MarkupPreview default setting, DO NOT MODIFY */
+/* Default settings, DO NOT MODIFY */
 {
     "server_host": "127.0.0.1",
     "server_port": 51004,
@@ -19,7 +19,7 @@
     //   ${packages}/User/N4-MarkupPreview/templates/
     // Requires browser reload
     // Built-in templates: github, github-v1
-    "html_template_name": "bootstrap",
+    "html_template_name": "asciidoctor",
 
     // Polling interval for content changes in web browsers, in milliseconds
     // Requires browser reload
@@ -46,7 +46,7 @@
     "export_options" : {
         // follow "html_template_name" rules
         // Built-in templates: github-export, github-v1-export
-        "template_name": "github-export",
+        "template_name": "asciidoctor",
         // ".":  export to the same folder as markup file.
         // null: export to system temp folder.
         // NOTE: folder shall exist, or it will fallback to system temp folder.

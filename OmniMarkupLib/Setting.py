@@ -75,6 +75,44 @@ class Setting(SettingEventSource):
 
         self._fix_setting_type()
 
+    def load_github(self):
+        PLUGIN_NAME = 'N4-MarkupPreview'
+        settings = sublime.load_settings('github.sublime-settings')
+        settings.clear_on_change(PLUGIN_NAME)
+        settings.add_on_change(PLUGIN_NAME, self.sublime_settings_on_change)
+
+        self._sublime_settings = settings
+
+        # Merge new settings into the default settings
+        default_settings = self._read_default_settings()
+        for k, v in default_settings.items():
+            if isinstance(v, dict):
+                v.update(settings.get(k, {}))
+            else:
+                v = settings.get(k, v)
+            setattr(self, k, v)
+
+        self._fix_setting_type()
+
+    def load_asciidoctor(self):
+        PLUGIN_NAME = 'N4-MarkupPreview'
+        settings = sublime.load_settings('asciidoctor.sublime-settings')
+        settings.clear_on_change(PLUGIN_NAME)
+        settings.add_on_change(PLUGIN_NAME, self.sublime_settings_on_change)
+
+        self._sublime_settings = settings
+
+        # Merge new settings into the default settings
+        default_settings = self._read_default_settings()
+        for k, v in default_settings.items():
+            if isinstance(v, dict):
+                v.update(settings.get(k, {}))
+            else:
+                v = settings.get(k, v)
+            setattr(self, k, v)
+
+        self._fix_setting_type()
+
     def get_setting(self, k, default=None):
         return getattr(self, k, default)
 

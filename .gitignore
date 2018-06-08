@@ -3,3 +3,4 @@
 *.sublime-project
 .*.DOWNLOADED
 .DS_Store
+.idea/

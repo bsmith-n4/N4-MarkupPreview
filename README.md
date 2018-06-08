@@ -1,4 +1,4 @@
-# N4 Markup Previewer
+# Markup Preview
 
 [![Build Status](https://travis-ci.org/bsmith-n4/N4-MarkupPreview.svg?branch=master)](https://travis-ci.org/bsmith-n4/N4-MarkupPreview)
 

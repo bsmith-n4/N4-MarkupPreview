@@ -91,12 +91,34 @@ def launching_web_browser_for_url(url, success_msg_default=None, success_msg_use
         else:
             log.exception('Error while launching default web browser')
 
+def ReloadNotify():
+    msg = 'HTML Template updated, please reload your browser'
+    sublime.status_message('%s' % (msg))
+    log.info('%s' % (msg))
+      
+class DefaultCommand(sublime_plugin.ApplicationCommand):
+    def run (self):
+        setting = Setting.instance()
+        setting.load_setting()
+        ReloadNotify()
+
+class GithubCommand(sublime_plugin.ApplicationCommand):
+    def run (self):
+        setting = Setting.instance()
+        setting.load_github()
+        ReloadNotify()
+
+class AsciidoctorCommand(sublime_plugin.ApplicationCommand):
+    def run (self):
+        setting = Setting.instance()
+        setting.load_asciidoctor()
+        ReloadNotify()
 
 class OmniMarkupPreviewCommand(sublime_plugin.TextCommand):
     def run(self, edit, immediate=True):
         # Whether RendererManager is finished loading?
         if not RendererManager.ensure_started():
-            sublime.status_message('N4-MarkupPreview have not yet started')
+            sublime.status_message('MarkupPreview has not yet started')
             return
 
         buffer_id = self.view.buffer_id()
@@ -124,7 +146,6 @@ class OmniMarkupPreviewCommand(sublime_plugin.TextCommand):
     def is_enabled(self):
         return RendererManager.any_available_renderer_for_view(self.view)
 
-
 class OmniMarkupCleanCacheCommand(sublime_plugin.ApplicationCommand):
     def run(self):
         storage = RenderedMarkupCache.instance()
@@ -135,6 +156,7 @@ class OmniMarkupExportCommand(sublime_plugin.TextCommand):
     def copy_to_clipboard(self, html_content):
         sublime.set_clipboard(html_content)
         sublime.status_message('Exported result copied to clipboard')
+
 
     def write_to_file(self, html_content, setting):
         target_folder = setting.export_options.get('target_folder', '.')
@@ -357,7 +379,7 @@ class PluginManager(object):
     def on_setting_changed(self, setting):
         if (setting.ajax_polling_interval != self.old_ajax_polling_interval or
                 setting.html_template_name != self.old_html_template_name):
-            sublime.status_message('N4-MarkupPreview requires a browser reload to apply changes')
+            sublime.status_message('MarkupPreview requires a browser reload to apply changes')
 
         need_server_restart = (setting.server_host != self.old_server_host or
                                setting.server_port != self.old_server_port)
