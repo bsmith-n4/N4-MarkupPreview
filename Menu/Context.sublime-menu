@@ -3,12 +3,16 @@
     "caption": "Markup Preview",
     "children": [    
       {
-        "caption": "Default Template",
+        "caption": "Bootstrap CSS",
         "command": "default"
       },
       {
-        "caption": "Github Template",
+        "caption": "Github CSS",
         "command": "github"
+      },
+      {
+        "caption": "Asciidoctor CSS",
+        "command": "asciidoctor"
       },
       {"caption": "-"},
       {

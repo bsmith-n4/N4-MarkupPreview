@@ -108,6 +108,12 @@ class GithubCommand(sublime_plugin.ApplicationCommand):
         setting.load_github()
         ReloadNotify()
 
+class AsciidoctorCommand(sublime_plugin.ApplicationCommand):
+    def run (self):
+        setting = Setting.instance()
+        setting.load_asciidoctor()
+        ReloadNotify()
+
 class OmniMarkupPreviewCommand(sublime_plugin.TextCommand):
     def run(self, edit, immediate=True):
         # Whether RendererManager is finished loading?

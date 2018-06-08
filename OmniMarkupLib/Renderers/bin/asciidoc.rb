@@ -1,6 +1,4 @@
 require 'asciidoctor'
-require 'aspec_rb'
-
 
 # Force utf-8 encoding
 begin
@@ -10,5 +8,4 @@ rescue StandardError
 end
 
 text = $stdin.read
-options = { 'icons' => 'font' , 'toc' => 'left', 'toclevels' => '5'}
-$stdout.write Asciidoctor::Document.new(text, safe: 'unsafe', attributes: options).render
+$stdout.write Asciidoctor::Document.new(text, safe: 'unsafe').render
